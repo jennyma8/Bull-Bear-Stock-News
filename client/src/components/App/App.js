@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Avatar from "./Avatar";
+import Avatar from "../Avatar/Avatar";
 
-import { AppContext } from "./AppContext";
+import { AppContext } from "../../components/AppContext/AppContext";
 
 const App = () => {
   const { appUser, signInWithGoogle, handleSignOut, message } = useContext(

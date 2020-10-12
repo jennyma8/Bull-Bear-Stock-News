@@ -1,15 +1,15 @@
 {
-  "name": "queue-backend",
+  "name": "Bull-and-Bear-Stock-Market-News",
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
+  "author": "Jenny Ma",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js ",
     "heroku-postbuild": "cd client && yarn install && yarn build",
     "dev": "nodemon backend/server.js"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "@slack/web-api": "^5.8.0",
