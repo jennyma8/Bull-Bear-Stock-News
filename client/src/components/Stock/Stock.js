@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 const finnhub = require("finnhub");
+require("dotenv").config();
 
 const api_key = finnhub.ApiClient.instance.authentications["api_key"];
-api_key.apiKey = "bu3377n48v6pqlhnsqfg";
+api_key.apiKey = process.env.FINNHUB_API;
 const finnhubClient = new finnhub.DefaultApi();
 // console.log(finnhubClient); success
 
