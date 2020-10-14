@@ -66,52 +66,40 @@ fetch(
   });
 
 //INTRADAY 5MIN
-fetch(
-  "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=process.env.ALPHA_API"
-)
-  .then(function (response) {
-    if (response.status !== 200) {
-      console.log(
-        "Looks like there was a problem. Status Code: " + response.status
-      );
-      return;
-    }
-
-    // Examine the text in the response
-    response.json().then(function (data) {
-      console.log(data);
-    });
-  })
-  .catch(function (err) {
-    console.log("Fetch Error :-S", err);
-  });
 
 const Stock = () => {
-  // fetchStock() {
-  //     const API_KEY=process.env.ALPHA_API
-  //     let API_Call=
-  // }
-  //Company News
+  const [data, setdata] = React.useState();
 
-  //   Response Attributes:
+  React.useEffect(() => {
+    fetch(
+      "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=process.env.ALPHA_API"
+    )
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
 
-  // o
-  // Open price of the day
+        // Examine the text in the response
+        response.json().then(function (data) {
+          console.log(data);
+          setdata(data);
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }, []);
 
-  // h
-  // High price of the day
+  if (!data) {
+    return <h1>loading</h1>;
+  }
 
-  // l
-  // Low price of the day
-
-  // c
-  // Current price
-
-  // pc
-  // Previous close price
   return (
     <>
-      <div>hello</div>
+      <div>{data["Meta Data"]["2. Symbol"]}</div>
     </>
   );
 };

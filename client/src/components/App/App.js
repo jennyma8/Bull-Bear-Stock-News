@@ -64,7 +64,6 @@ const StyledHeader = styled.nav`
 const StyledUserContainer = styled.div`
   display: flex;
   align-items: center;
-  height: 50px;
 `;
 
 const StyledContainer = styled.div`
