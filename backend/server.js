@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const { createUser } = require("./handlers");
 const { getUser } = require("./handlers");
+const routes = require("./routes");
 
 require("dotenv").config();
 const PORT = process.env.PORT || 8000;
@@ -24,7 +25,10 @@ express()
   .use(express.static("./client/build"))
   .use(bodyParser.json())
   .use(express.urlencoded({ extended: false }))
+  .use("/", express.static(__dirname + "/"))
+  .use("/", routes)
 
+  //login
   .get("/users", getUser)
   .post("/users", createUser)
 
