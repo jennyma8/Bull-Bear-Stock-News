@@ -68,7 +68,6 @@ const StyledUserContainer = styled.div`
 
 const StyledContainer = styled.div`
   background: #fafafa;
-  min-height: 400px;
   padding: 14px;
 `;
 

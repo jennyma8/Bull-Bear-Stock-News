@@ -99,9 +99,22 @@ const Stock = () => {
 
   return (
     <>
-      <div>{data["Meta Data"]["2. Symbol"]}</div>
+      <div>Symbol: {data["Meta Data"]["2. Symbol"]}</div>
+      <div>Last Refreshed: {data["Meta Data"]["3. Last Refreshed"]}</div>
+      <div>Last Update: {Object.entries(data["Time Series (5min)"])[0][0]}</div>
+      <div>
+        Last Price:{" "}
+        {Object.entries(data["Time Series (5min)"])[0][1]["4. close"]}
+      </div>
     </>
   );
 };
 
+{
+  /* <div>
+{Object.values(data["Time Series (5min)"]).map(([date, stockPrice]) => {
+  return <div>{date}<div>Last price: {stockPrice["4. close"]}</div>;
+})}
+</div> */
+}
 export default Stock;
