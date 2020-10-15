@@ -4,6 +4,8 @@ import Avatar from "../Avatar/Avatar";
 
 import { AppContext } from "../../components/AppContext/AppContext";
 import Stock from "../../components/Stock/Stock";
+import News from "../../components/News/News";
+import Search from "../../components/Search/Search";
 
 // const finnhub = require("finnhub");
 
@@ -45,7 +47,9 @@ const App = () => {
       <StyledContainer>
         你好 {appUser.displayName}! {message}
       </StyledContainer>
+      <Search />
       <Stock />
+      <News />
     </StyledPageWrapper>
   );
 };
