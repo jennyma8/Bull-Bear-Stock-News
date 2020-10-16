@@ -16,22 +16,7 @@ import Footer from "../Footer";
 const Layout = () => {
   return (
     <Router>
-      <Nav>
-        
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-        
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-         
-          <Route component={Error} />
-        </Switch>
-      </Nav>
-      <Footer />
+      <Nav />
     </Router>
   );
 };

@@ -60,5 +60,7 @@ const StockQuote = () => {
 })}
 </div> */
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: green;
+`;
 export default StockQuote;

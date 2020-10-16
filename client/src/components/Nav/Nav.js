@@ -11,27 +11,17 @@ const Nav = () => {
           Logo
           {/* <img src={Logo} alt="Logo" style={{ height: 70, width: 70 }} /> */}
         </LogoSrc>
-        <Title>earabology</Title>
-
-        <StyledLink exact to="/">
-          <LinkName>Home</LinkName>
-        </StyledLink>
-
-        <StyledLink exact to="/about">
-          <LinkName>About Us</LinkName>
-        </StyledLink>
-        <StyledLink exact to="/search">
-          <LinkName>
-            <FiSearch />
-            <span>Search</span>
-          </LinkName>
-        </StyledLink>
+        <Title>Bull and Bear Stock Market News</Title>
+        <FiSearch />
+        <span>Search</span>
       </Wrapper>
     </>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: yellow;
+`;
 const Title = styled.div``;
 const LogoSrc = styled.div``;
 

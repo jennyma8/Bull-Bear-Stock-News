@@ -37,19 +37,25 @@ const Search = () => {
 
   return (
     <>
-      <div>Search</div>
-      <div>
-        {Object.values(data["bestMatches"]).map((stock) => {
-          return (
-            <>
-              <div>{stock["1. symbol"]}</div>
-              <div>{stock["2. name"]}</div>
-            </>
-          );
-        })}
-      </div>
+      <Wrapper>
+        <div>Search</div>
+        <div>
+          {Object.values(data["bestMatches"]).map((stock) => {
+            return (
+              <>
+                <div>{stock["1. symbol"]}</div>
+                <div>{stock["2. name"]}</div>
+              </>
+            );
+          })}
+        </div>
+      </Wrapper>
     </>
   );
 };
+
+const Wrapper = styled.div`
+  background-color: red;
+`;
 
 export default Search;
