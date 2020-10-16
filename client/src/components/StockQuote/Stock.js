@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
-const Stock = () => {
+const StockQuote = () => {
   const [data, setdata] = React.useState();
 
   React.useEffect(() => {
@@ -39,13 +39,17 @@ const Stock = () => {
   //format: object of object
   return (
     <>
-      <div>Symbol: {data["Meta Data"]["2. Symbol"]}</div>
-      <div>Last Refreshed: {data["Meta Data"]["3. Last Refreshed"]}</div>
-      <div>Last Update: {Object.entries(data["Time Series (5min)"])[0][0]}</div>
-      <div>
-        Last Price:{" "}
-        {Object.entries(data["Time Series (5min)"])[0][1]["4. close"]}
-      </div>
+      <Wrapper>
+        <div>Symbol: {data["Meta Data"]["2. Symbol"]}</div>
+        <div>Last Refreshed: {data["Meta Data"]["3. Last Refreshed"]}</div>
+        <div>
+          Last Update: {Object.entries(data["Time Series (5min)"])[0][0]}
+        </div>
+        <div>
+          Last Price:{" "}
+          {Object.entries(data["Time Series (5min)"])[0][1]["4. close"]}
+        </div>
+      </Wrapper>
     </>
   );
 };
@@ -56,4 +60,5 @@ const Stock = () => {
 })}
 </div> */
 
-export default Stock;
+const Wrapper = styled.div``;
+export default StockQuote;

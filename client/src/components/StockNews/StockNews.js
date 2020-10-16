@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const apiKey = process.env.REACT_APP_NEWS_API;
 
-const News = () => {
+const StockNews = () => {
   const [data, setdata] = React.useState();
 
   React.useEffect(() => {
@@ -57,4 +57,4 @@ const News = () => {
 const NewsContainer = styled.div`
   padding: 10px;
 `;
-export default News;
+export default StockNews;

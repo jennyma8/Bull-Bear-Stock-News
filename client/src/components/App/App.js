@@ -3,9 +3,10 @@ import styled from "styled-components";
 import Avatar from "../Avatar/Avatar";
 
 import { AppContext } from "../../components/AppContext/AppContext";
-import Stock from "../../components/Stock/Stock";
-import News from "../../components/News/News";
+import StockQuote from "../../components/StockQuote/StockQuote";
+import StockNews from "../StockNews/StockNews";
 import Search from "../../components/Search/Search";
+import Nav from "../../components/Nav/Nav";
 
 const App = () => {
   const { appUser, signInWithGoogle, handleSignOut, message } = useContext(
@@ -27,12 +28,11 @@ const App = () => {
           <button onClick={signInWithGoogle}>Sign In</button>
         )}
       </StyledHeader>
-      <StyledContainer>
-        你好 {appUser.displayName}! {message}
-      </StyledContainer>
+      <StyledContainer>Hi {appUser.displayName}!</StyledContainer>
+      <Nav />
       <Search />
-      <Stock />
-      <News />
+      <StockQuote />
+      <StockNews />
     </StyledPageWrapper>
   );
 };

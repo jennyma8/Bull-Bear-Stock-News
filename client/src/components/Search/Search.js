@@ -8,8 +8,7 @@ const Search = () => {
   const [data, setdata] = React.useState();
 
   React.useEffect(() => {
-    //input keywords
-    //INTRADAY 5MIN
+    //input keywords0
     fetch(
       `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=${apiKeyAlpha}`
     )
