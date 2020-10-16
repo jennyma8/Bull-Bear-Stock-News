@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-require("dotenv").config();
-console.log(process.env.ALPHA_API);
+
+const apiKey = process.env.REACT_APP_NEWS_API;
 
 const News = () => {
   const [data, setdata] = React.useState();
@@ -10,9 +10,7 @@ const News = () => {
     //ticker params
     //company news
 
-    fetch(
-      "https://stocknewsapi.com/api/v1?tickers=FB&items=50&token=process.env.NEWS_API"
-    )
+    fetch(`https://stocknewsapi.com/api/v1?tickers=FB&items=50&token=${apiKey}`)
       .then(function (response) {
         if (response.status !== 200) {
           console.log(

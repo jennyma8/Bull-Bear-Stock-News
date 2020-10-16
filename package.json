@@ -1,5 +1,5 @@
 {
-  "name": "Bull-and-Bear-Stock-Market-News",
+  "name": "client",
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
@@ -16,7 +16,6 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "finnhub": "^1.2.1",
     "firebase-admin": "^8.10.0",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",

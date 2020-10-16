@@ -21,7 +21,8 @@
     "styled-components": "^5.0.1",
     "new-component": "^2.0.0",
     "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "dotenv": "^8.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

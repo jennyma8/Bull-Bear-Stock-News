@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 require("dotenv").config();
+const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const Search = () => {
   const [data, setdata] = React.useState();
@@ -10,7 +11,7 @@ const Search = () => {
     //input keywords
     //INTRADAY 5MIN
     fetch(
-      "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=process.env.ALPHA_API"
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {

@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 require("dotenv").config();
 
+const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
+
 const Stock = () => {
   const [data, setdata] = React.useState();
 
@@ -9,7 +11,7 @@ const Stock = () => {
     //input symbol
     //INTRADAY 5MIN
     fetch(
-      "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=process.env.ALPHA_API"
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {

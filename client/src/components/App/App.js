@@ -7,23 +7,6 @@ import Stock from "../../components/Stock/Stock";
 import News from "../../components/News/News";
 import Search from "../../components/Search/Search";
 
-// const finnhub = require("finnhub");
-
-// const api_key = finnhub.ApiClient.instance.authentications["api_key"];
-//   api_key.apiKey = "bu3377n48v6pqlhnsqfg"; // Replace this
-//   const finnhubClient = new finnhub.DefaultApi();
-//   finnhubClient.companyNews(
-//     "AAPL",
-//     "2020-01-01",
-//     "2020-05-01",
-//     (error, data, response) => {
-//       if (error) {
-//         console.error(error);
-//       } else {
-//         console.log(data);
-//       }
-//     }
-//   );
 const App = () => {
   const { appUser, signInWithGoogle, handleSignOut, message } = useContext(
     AppContext
