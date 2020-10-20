@@ -59,3 +59,5 @@ const Wrapper = styled.div`
 `;
 
 export default Search;
+
+//check M4-3 for typeahead search bar

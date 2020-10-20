@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 require("dotenv").config();
+// import { useParams } from "react-router-dom";
 
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
