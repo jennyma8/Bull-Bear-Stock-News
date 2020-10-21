@@ -1,4 +1,5 @@
 const routes = require("express").Router();
+const stock = require("./stock");
 
 routes.get("/", (req, res) => {
   try {

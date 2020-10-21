@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Avatar from "../Avatar/Avatar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AppContext } from "../../components/AppContext/AppContext";
-import StockQuote from "../../components/StockQuote/StockQuote";
-import StockNews from "../StockNews/StockNews";
-import Search from "../../components/Search/Search";
+import StockPage from "../../components/StockPage/StockPage";
+
 import Nav from "../../components/Nav/Nav";
 import About from "../../components/About/About";
 import Homepage from "../../components/Homepage/Homepage";
@@ -40,16 +39,16 @@ const App = () => {
               <Homepage />
             </Route>
 
-            <Route path="/stocks/aapl"></Route>
-            <Route path="/stocks/aaplnews"></Route>
+            <Route path="/stocks/aapl">
+              <StockPage />
+            </Route>
+
             <Route exact path="/about">
               <About />
             </Route>
           </Nav>
         </Switch>
-        <Search />
-        <StockQuote />
-        <StockNews />
+
         <Footer />
       </StyledPageWrapper>
     </Router>

@@ -44,11 +44,14 @@ const Search = () => {
     <>
       <FiSearch />
 
-      <input
-        placeholder="Search..."
-        // onChangeText={onChangeSearch}
-        // value={searchQuery}
-      ></input>
+      <form>
+        <input
+          placeholder="Search..."
+          // onChangeText={onChangeSearch}
+          // value={searchQuery}
+        ></input>
+        <button>Submit</button>
+      </form>
       <div>
         {Object.values(data["bestMatches"]).map((stock) => {
           return (
