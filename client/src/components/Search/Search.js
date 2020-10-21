@@ -1,16 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
+import { FiSearch } from "react-icons/fi";
+
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const Search = () => {
   const [data, setdata] = React.useState();
+  // const [searchQuery, setSearchQuery] = React.useState("");
+
+  // const onChangeSearch = (query) => setSearchQuery(query);
 
   React.useEffect(() => {
     //input keywords0
     fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=tesco&apikey=${apiKeyAlpha}`
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=aapl&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {
@@ -37,26 +42,26 @@ const Search = () => {
 
   return (
     <>
-      <Wrapper>
-        <div>Search</div>
-        <div>
-          {Object.values(data["bestMatches"]).map((stock) => {
-            return (
-              <>
-                <div>{stock["1. symbol"]}</div>
-                <div>{stock["2. name"]}</div>
-              </>
-            );
-          })}
-        </div>
-      </Wrapper>
+      <FiSearch />
+
+      <input
+        placeholder="Search..."
+        // onChangeText={onChangeSearch}
+        // value={searchQuery}
+      ></input>
+      <div>
+        {Object.values(data["bestMatches"]).map((stock) => {
+          return (
+            <>
+              <div>{stock["1. symbol"]}</div>
+              <div>{stock["2. name"]}</div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 };
-
-const Wrapper = styled.div`
-  background-color: red;
-`;
 
 export default Search;
 

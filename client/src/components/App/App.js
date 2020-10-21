@@ -39,7 +39,7 @@ const App = () => {
             <Route exact path="/">
               <Homepage />
             </Route>
-            <Search />
+
             <Route path="/stocks/aapl"></Route>
             <Route path="/stocks/aaplnews"></Route>
             <Route exact path="/about">
@@ -47,6 +47,7 @@ const App = () => {
             </Route>
           </Nav>
         </Switch>
+        <Search />
         <StockQuote />
         <StockNews />
         <Footer />
