@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-require("dotenv").config();
-// import { useParams } from "react-router-dom";
 
+import { AppContext } from "../AppContext/AppContext";
+require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const StockQuote = () => {
   const [data, setdata] = React.useState();
+  const { ticker } = useContext(AppContext);
+
+  //create new state of ticket and setTicker
 
   React.useEffect(() => {
     //input symbol
     //INTRADAY 5MIN
+    console.log(ticker);
     fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${apiKeyAlpha}`
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {
@@ -31,7 +35,7 @@ const StockQuote = () => {
       .catch(function (err) {
         console.log("Fetch Error :-S", err);
       });
-  }, []);
+  }, [ticker]);
 
   if (!data) {
     return <h1>loading</h1>;

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-
+import { AppContext } from "../AppContext/AppContext";
 import { FiSearch } from "react-icons/fi";
 
 require("dotenv").config();
@@ -8,14 +8,17 @@ const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const Search = () => {
   const [data, setdata] = React.useState();
-  // const [searchQuery, setSearchQuery] = React.useState("");
+  const [tickerInput, setTickerInput] = React.useState();
+  const { ticker, setTicker } = useContext(AppContext);
 
-  // const onChangeSearch = (query) => setSearchQuery(query);
+  const handleChange = (event) => {
+    setTickerInput(event.target.value);
+  };
 
   React.useEffect(() => {
     //input keywords0
     fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=aapl&apikey=${apiKeyAlpha}`
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {
@@ -42,15 +45,16 @@ const Search = () => {
 
   return (
     <>
-      <FiSearch />
-
       <form>
+        <FiSearch />
         <input
           placeholder="Search..."
-          // onChangeText={onChangeSearch}
-          // value={searchQuery}
+          onChange={handleChange}
+          value={tickerInput}
         ></input>
-        <button>Submit</button>
+        <button type="button" onClick={() => setTicker(tickerInput)}>
+          Submit
+        </button>
       </form>
       <div>
         {Object.values(data["bestMatches"]).map((stock) => {

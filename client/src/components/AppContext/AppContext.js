@@ -24,6 +24,7 @@ const providers = {
 const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
   const [message, setMessage] = useState("");
+  const [ticker, setTicker] = useState("FB");
 
   const handleSignOut = () => {
     signOut();
@@ -58,7 +59,14 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   // console.log(user);
   return (
     <AppContext.Provider
-      value={{ appUser, signInWithGoogle, handleSignOut, message }}
+      value={{
+        appUser,
+        signInWithGoogle,
+        handleSignOut,
+        message,
+        ticker,
+        setTicker,
+      }}
     >
       {children}
     </AppContext.Provider>

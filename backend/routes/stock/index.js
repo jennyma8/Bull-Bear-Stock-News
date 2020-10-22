@@ -1,5 +1,5 @@
-const stock = require("express").Router();
+// const stock = require("express").Router();
 
-stock.get("/", all);
+// // stock.get("/", all);
 
-module.exports = items;
+// module.exports = items;

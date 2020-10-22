@@ -14,7 +14,7 @@ routes.get("/", (req, res) => {
     });
   }
 });
-routes.use("/stock", stock);
-routes.use("/news", news);
+// routes.use("/stock", stock);
+// routes.use("/news", news);
 
 module.exports = routes;
