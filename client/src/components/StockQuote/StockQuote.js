@@ -14,9 +14,9 @@ const StockQuote = () => {
   React.useEffect(() => {
     //input symbol
     //INTRADAY 5MIN
-    console.log(ticker);
+    // console.log(ticker);
     fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&apikey=${apiKeyAlpha}`
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
     )
       .then(function (response) {
         if (response.status !== 200) {
@@ -46,13 +46,12 @@ const StockQuote = () => {
     <>
       <Wrapper>
         <div>Symbol: {data["Meta Data"]["2. Symbol"]}</div>
-        <div>Last Refreshed: {data["Meta Data"]["3. Last Refreshed"]}</div>
-        <div>
-          Last Update: {Object.entries(data["Time Series (5min)"])[0][0]}
-        </div>
         <div>
           Last Price:{" "}
-          {Object.entries(data["Time Series (5min)"])[0][1]["4. close"]}
+          {Object.entries(data["Time Series (1min)"])[0][1]["4. close"]}
+        </div>
+        <div>
+          Last Update: {Object.entries(data["Time Series (1min)"])[0][0]}
         </div>
       </Wrapper>
     </>
@@ -66,6 +65,6 @@ const StockQuote = () => {
 </div> */
 
 const Wrapper = styled.div`
-  background-color: green;
+  background-color: lightgrey;
 `;
 export default StockQuote;

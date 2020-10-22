@@ -15,48 +15,47 @@ const Search = () => {
     setTickerInput(event.target.value);
   };
 
-  React.useEffect(() => {
-    //input keywords0
-    fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+  // React.useEffect(() => {
+  //   //input keywords0
+  //   fetch(
+  //     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
+  //   )
+  //     .then(function (response) {
+  //       if (response.status !== 200) {
+  //         console.log(
+  //           "Looks like there was a problem. Status Code: " + response.status
+  //         );
+  //         return;
+  //       }
 
-        // Examine the text in the response
-        response.json().then(function (data) {
-          //   console.log(data);
-          setdata(data);
-        });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
-  }, []);
+  //       // Examine the text in the response
+  //       response.json().then(function (data) {
+  //         //   console.log(data);
+  //         setdata(data);
+  //       });
+  //     })
+  //     .catch(function (err) {
+  //       console.log("Fetch Error :-S", err);
+  //     });
+  // }, []);
 
-  if (!data) {
-    return <h1>loading</h1>;
-  }
+  // if (!data) {
+  //   return <h1>loading</h1>;
+  // }
 
   return (
     <>
       <form>
-        <FiSearch />
-        <input
+        <SearchInput
           placeholder="Search..."
           onChange={handleChange}
           value={tickerInput}
-        ></input>
-        <button type="button" onClick={() => setTicker(tickerInput)}>
-          Submit
-        </button>
+        ></SearchInput>
+        <Button type="button" onClick={() => setTicker(tickerInput)}>
+          <FiSearch size={25} />
+        </Button>
       </form>
-      <div>
+      {/* <div>
         {Object.values(data["bestMatches"]).map((stock) => {
           return (
             <>
@@ -65,11 +64,24 @@ const Search = () => {
             </>
           );
         })}
-      </div>
+      </div> */}
     </>
   );
 };
 
+const SearchInput = styled.input`
+  border-radius: 20px;
+  height: 40px;
+  border: 1px solid lightgrey;
+  width: 300px;
+`;
+
+const Button = styled.button`
+  border: none;
+  background-color: white;
+  margin-left: -50px;
+  margin-top: -20px;
+`;
 export default Search;
 
 //check M4-3 for typeahead search bar

@@ -13,6 +13,8 @@ const Nav = () => {
         </LogoSrc>
         <Title>Bull and Bear Stock Market News</Title>
         <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/stocks">Stocks</StyledLink>
+        <StyledLink to="/profile">Profile</StyledLink>
         <StyledLink to="/about">About</StyledLink>
       </Wrapper>
     </>

@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
 
+import { AppContext } from "../AppContext/AppContext";
+require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
 
 const StockNews = () => {
   const [data, setdata] = React.useState();
+  const { ticker } = useContext(AppContext);
 
   React.useEffect(() => {
     //ticker params
     //company news
 
-    fetch(`https://stocknewsapi.com/api/v1?tickers=FB&items=50&token=${apiKey}`)
+    fetch(
+      `https://stocknewsapi.com/api/v1?tickers=${ticker}&items=50&token=${apiKey}`
+    )
       .then(function (response) {
         if (response.status !== 200) {
           console.log(
