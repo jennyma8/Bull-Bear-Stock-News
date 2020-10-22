@@ -15,33 +15,33 @@ const Search = () => {
     setTickerInput(event.target.value);
   };
 
-  // React.useEffect(() => {
-  //   //input keywords0
-  //   fetch(
-  //     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
-  //   )
-  //     .then(function (response) {
-  //       if (response.status !== 200) {
-  //         console.log(
-  //           "Looks like there was a problem. Status Code: " + response.status
-  //         );
-  //         return;
-  //       }
+  React.useEffect(() => {
+    //input keywords0
+    fetch(
+      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
+    )
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
 
-  //       // Examine the text in the response
-  //       response.json().then(function (data) {
-  //         //   console.log(data);
-  //         setdata(data);
-  //       });
-  //     })
-  //     .catch(function (err) {
-  //       console.log("Fetch Error :-S", err);
-  //     });
-  // }, []);
+        // Examine the text in the response
+        response.json().then(function (data) {
+          //   console.log(data);
+          setdata(data);
+        });
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }, [ticker]);
 
-  // if (!data) {
-  //   return <h1>loading</h1>;
-  // }
+  if (!data) {
+    return <h1>loading</h1>;
+  }
 
   return (
     <>
@@ -55,16 +55,20 @@ const Search = () => {
           <FiSearch size={25} />
         </Button>
       </form>
-      {/* <div>
-        {Object.values(data["bestMatches"]).map((stock) => {
-          return (
-            <>
-              <div>{stock["1. symbol"]}</div>
-              <div>{stock["2. name"]}</div>
-            </>
-          );
-        })}
-      </div> */}
+      <SuggestionContainer>
+        <h1>Suggested Results</h1>
+        <div>
+          {Object.values(data["bestMatches"]).map((stock) => {
+            return (
+              <>
+                <div>
+                  {stock["1. symbol"]} - {stock["2. name"]}
+                </div>
+              </>
+            );
+          })}
+        </div>
+      </SuggestionContainer>
     </>
   );
 };
@@ -74,6 +78,10 @@ const SearchInput = styled.input`
   height: 40px;
   border: 1px solid lightgrey;
   width: 300px;
+
+  :focus {
+    outline: none;
+  }
 `;
 
 const Button = styled.button`
@@ -81,6 +89,13 @@ const Button = styled.button`
   background-color: white;
   margin-left: -50px;
   margin-top: -20px;
+`;
+
+const SuggestionContainer = styled.div`
+  /* display: none; */
+  border: 1px solid lightgrey;
+  margin-top: 2px;
+  width: 300px;
 `;
 export default Search;
 

@@ -24,7 +24,7 @@ const providers = {
 const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
   const [message, setMessage] = useState("");
-  const [ticker, setTicker] = useState("FB");
+  const [ticker, setTicker] = useState("AAPL");
 
   const handleSignOut = () => {
     signOut();

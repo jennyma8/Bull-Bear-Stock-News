@@ -33,7 +33,7 @@ const StockNews = () => {
       .catch(function (err) {
         console.log("Fetch Error :-S", err);
       });
-  }, []);
+  }, [ticker]);
 
   if (!data) {
     return <h1>loading</h1>;
@@ -42,6 +42,7 @@ const StockNews = () => {
   //format: array of object
   return (
     <>
+      <h1>Recent News</h1>
       {Object.values(data["data"]).map((news) => {
         return (
           <NewsContainer>

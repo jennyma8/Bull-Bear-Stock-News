@@ -64,6 +64,9 @@ const StockQuote = () => {
 })}
 </div> */
 
+// company overview
+// https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
+
 const Wrapper = styled.div`
   background-color: lightgrey;
 `;

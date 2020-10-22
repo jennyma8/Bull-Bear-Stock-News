@@ -8,6 +8,7 @@ const StockPage = () => {
   return (
     <>
       <Search />
+
       <StockQuote />
       <StockNews />
     </>
