@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import { FiSearch } from "react-icons/fi";

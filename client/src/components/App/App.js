@@ -1,7 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Avatar from "../Avatar/Avatar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 import { AppContext } from "../../components/AppContext/AppContext";
 import StockPage from "../../components/StockPage/StockPage";
 import Search from "../../components/Search/Search";
@@ -42,7 +47,7 @@ const App = () => {
             <About />
           </Route>
 
-          <Route path="/stocks">
+          <Route path="/stocks/aapl" component={Search}>
             <StockPage />
           </Route>
           <Route path="/profile">
