@@ -14,7 +14,6 @@ import Nav from "../../components/Nav/Nav";
 import About from "../../components/About/About";
 import Homepage from "../../components/Homepage/Homepage";
 import Footer from "../../components/Footer/Footer";
-import { FcGoogle } from "react-icons/fc";
 
 import Profile from "../Profile/Profile";
 
@@ -30,7 +29,6 @@ const App = () => {
           <Nav />
           {appUser && appUser.email ? (
             <StyledUserContainer>
-              <FcGoogle size={20} />
               <Avatar src={appUser.photoURL} />
               <p>
                 {appUser.displayName} ({appUser.email})
@@ -47,7 +45,7 @@ const App = () => {
             <About />
           </Route>
 
-          <Route path="/stocks/aapl" component={Search}>
+          <Route path="/stocks" component={Search}>
             <StockPage />
           </Route>
           <Route path="/profile">
