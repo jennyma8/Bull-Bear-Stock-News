@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
+import FX from "../FX/FX";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -41,27 +42,36 @@ const Homepage = () => {
   return (
     <>
       <Wrapper>
-        <h1>Global News</h1>
-        {Object.values(data["data"]).map((news) => {
-          return (
-            <NewsContainer>
-              <Title>{news.title}</Title>
-              <div>{news.date}</div>
-              <img src={news.image_url} alt="news"></img>
+        <FX />
+        <NewsWrapper>
+          <h1>Global Market News</h1>
+          {Object.values(data["data"]).map((news) => {
+            return (
+              <NewsContainer>
+                <Title>{news.title}</Title>
+                <div>{news.date}</div>
+                <img src={news.image_url} alt="news"></img>
 
-              <div>Source: {news.source_name}</div>
+                <div>Source: {news.source_name}</div>
 
-              <div>Summary: {news.text}</div>
-              <a href={news.news_url}>Read more...</a>
-            </NewsContainer>
-          );
-        })}
+                <div>Summary: {news.text}</div>
+                <a href={news.news_url}>Read more...</a>
+              </NewsContainer>
+            );
+          })}
+        </NewsWrapper>
       </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NewsWrapper = styled.div`
+  margin-top: 100px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -69,7 +79,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
 const NewsContainer = styled.div`
   border: 1px solid lightgrey;
   border-radius: 10px;
