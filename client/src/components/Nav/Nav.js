@@ -26,6 +26,8 @@ const Nav = () => {
 };
 
 const Wrapper = styled.div`
+  /* position: fixed;
+  z-index: 500; */
   display: flex;
   flex-direction: column;
 `;

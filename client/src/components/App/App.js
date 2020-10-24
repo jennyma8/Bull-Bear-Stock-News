@@ -65,19 +65,26 @@ const App = () => {
 const StyledPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0;
 `;
 
 const StyledHeader = styled.div`
-  padding: 6px 14px;
+  position: fixed;
+  z-index: 500;
+
   min-height: 48px;
   display: flex;
-
+  margin: 0;
+  top: 0;
+  width: 100%;
   justify-content: space-between;
+  background: white;
 `;
 
 const StyledUserContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 30px;
 `;
 
 export default App;

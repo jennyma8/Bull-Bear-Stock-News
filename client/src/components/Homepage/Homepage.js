@@ -45,12 +45,13 @@ const Homepage = () => {
         {Object.values(data["data"]).map((news) => {
           return (
             <NewsContainer>
+              <Title>{news.title}</Title>
               <div>{news.date}</div>
               <img src={news.image_url} alt="news"></img>
 
-              <div>{news.source_name}</div>
-              <div>{news.title}</div>
-              <div>{news.text}</div>
+              <div>Source: {news.source_name}</div>
+
+              <div>Summary: {news.text}</div>
               <a href={news.news_url}>Read more...</a>
             </NewsContainer>
           );
@@ -61,18 +62,28 @@ const Homepage = () => {
 };
 
 const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 const NewsContainer = styled.div`
-  padding: 10px;
-  align-items: center;
-
-  img {
-    width: 500px;
-  }
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: 100%;
+  margin-bottom: 15px;
 `;
 
+const Title = styled.h1`
+  font-size: 30px;
+  font-weight: bold;
+`;
 export default Homepage;
