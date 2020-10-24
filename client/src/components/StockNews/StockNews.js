@@ -42,25 +42,33 @@ const StockNews = () => {
   //format: array of object
   return (
     <>
-      <h1>Recent News</h1>
-      {Object.values(data["data"]).map((news) => {
-        return (
-          <NewsContainer>
-            <div>{news.date}</div>
-            <img src={news.image_url} alt="news"></img>
+      <Wrapper>
+        <h1>Recent News</h1>
+        {Object.values(data["data"]).map((news) => {
+          return (
+            <NewsContainer>
+              <div>{news.date}</div>
+              <img src={news.image_url} alt="news"></img>
 
-            <div>{news.source_name}</div>
-            <div>{news.title}</div>
-            <div>{news.text}</div>
-            <a href={news.news_url}>Read more...</a>
-          </NewsContainer>
-        );
-      })}
+              <div>{news.source_name}</div>
+              <div>{news.title}</div>
+              <div>{news.text}</div>
+              <a href={news.news_url}>Read more...</a>
+            </NewsContainer>
+          );
+        })}
+      </Wrapper>
     </>
   );
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const NewsContainer = styled.div`
   padding: 10px;
 `;
+
 export default StockNews;

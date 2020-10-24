@@ -46,34 +46,39 @@ const Search = () => {
 
   return (
     <>
-      <form>
-        <SearchInput
-          placeholder="Search..."
-          onChange={handleChange}
-          value={tickerInput}
-        ></SearchInput>
-        <Button type="button" onClick={() => setTicker(tickerInput)}>
-          <FiSearch size={25} />
-        </Button>
-      </form>
-      <SuggestionContainer>
-        <h1>Suggested Results</h1>
-        <div>
-          {Object.values(data["bestMatches"]).map((stock) => {
-            return (
-              <>
-                <div>
-                  {stock["1. symbol"]} - {stock["2. name"]}
-                </div>
-              </>
-            );
-          })}
-        </div>
-      </SuggestionContainer>
+      <Wrapper>
+        <form>
+          <SearchInput
+            placeholder="Search..."
+            onChange={handleChange}
+            value={tickerInput}
+          ></SearchInput>
+          <Button type="button" onClick={() => setTicker(tickerInput)}>
+            <FiSearch size={25} />
+          </Button>
+        </form>
+        <SuggestionContainer>
+          <h1>Suggested Results</h1>
+          <div>
+            {Object.values(data["bestMatches"]).map((stock) => {
+              return (
+                <>
+                  <div>
+                    {stock["1. symbol"]} - {stock["2. name"]}
+                  </div>
+                </>
+              );
+            })}
+          </div>
+        </SuggestionContainer>
+      </Wrapper>
     </>
   );
 };
 
+const Wrapper = styled.div`
+  margin-top: 100px;
+`;
 const SearchInput = styled.input`
   border-radius: 20px;
   height: 40px;
