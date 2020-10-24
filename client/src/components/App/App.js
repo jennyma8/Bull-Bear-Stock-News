@@ -40,11 +40,11 @@ const App = () => {
         </StyledHeader>
 
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
 
-          <Route path="/stocks/:tickerParam">
+          <Route path="/stocks/:tickerParam" component={StockPage}>
             <StockPage />
           </Route>
           <Route exact path="/stocks">

@@ -44,6 +44,7 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          Watchlist: user.Watchlist,
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
