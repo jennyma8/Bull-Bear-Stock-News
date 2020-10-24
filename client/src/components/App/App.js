@@ -14,7 +14,6 @@ import Nav from "../../components/Nav/Nav";
 import About from "../../components/About/About";
 import Homepage from "../../components/Homepage/Homepage";
 import Footer from "../../components/Footer/Footer";
-
 import Profile from "../Profile/Profile";
 
 const App = () => {
@@ -41,11 +40,14 @@ const App = () => {
         </StyledHeader>
 
         <Switch>
-          <Route exact path="/about">
+          <Route path="/about">
             <About />
           </Route>
 
-          <Route path="/stocks" component={Search}>
+          <Route path="/stocks/:tickerParam">
+            <StockPage />
+          </Route>
+          <Route exact path="/stocks">
             <StockPage />
           </Route>
           <Route path="/profile">

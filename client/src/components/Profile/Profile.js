@@ -6,11 +6,17 @@ const Profile = () => {
   const { appUser } = useContext(AppContext);
   return (
     <>
-      <div>Hi {appUser.displayName}!</div>
+      <Wrapper>
+        <div>Hi {appUser.displayName}!</div>
 
-      <div>Watchlist (add ticker with link)</div>
+        <div>Watchlist (add ticker with link)</div>
+      </Wrapper>
     </>
   );
 };
+
+const Wrapper = styled.div`
+  margin-top: 200px;
+`;
 
 export default Profile;

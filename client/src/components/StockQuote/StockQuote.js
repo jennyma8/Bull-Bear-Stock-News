@@ -13,7 +13,7 @@ const StockQuote = () => {
 
   React.useEffect(() => {
     //input symbol
-    //INTRADAY 5MIN
+    //INTRADAY 1MIN
     // console.log(ticker);
     fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
@@ -28,7 +28,7 @@ const StockQuote = () => {
 
         // Examine the text in the response
         response.json().then(function (data) {
-          // console.log(data);
+          console.log(data);
           setdata(data);
         });
       })

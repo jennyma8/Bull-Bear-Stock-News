@@ -12,6 +12,10 @@ const Search = () => {
   const [tickerInput, setTickerInput] = React.useState();
   const { ticker, setTicker } = useContext(AppContext);
 
+  const { tickerParam } = useParams();
+  console.log(tickerParam, "look here");
+  // const confirmTicker = tickerParam
+
   const handleChange = (event) => {
     setTickerInput(event.target.value);
   };
