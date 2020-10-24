@@ -45,9 +45,11 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         },
         body: JSON.stringify({
           Watchlist: user.Watchlist,
+          Language: user.language,
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
+          Hobbies: user.tennis,
         }),
       })
         .then((res) => res.json())
@@ -57,7 +59,7 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         });
     }
   }, [user]);
-  // console.log(user);
+  console.log(user);
   return (
     <AppContext.Provider
       value={{

@@ -11,6 +11,7 @@ const Profile = () => {
         <div>Hi {appUser.displayName}!</div>
 
         <div>Watchlist: {appUser.Watchlist}</div>
+        <div>{appUser.Hobbies}</div>
       </Wrapper>
     </>
   );

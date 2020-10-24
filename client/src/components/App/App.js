@@ -17,9 +17,14 @@ import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
 
 const App = () => {
-  const { appUser, signInWithGoogle, handleSignOut, message } = useContext(
-    AppContext
-  );
+  const {
+    appUser,
+    signInWithGoogle,
+    handleSignOut,
+    message,
+    ticker,
+    setTicker,
+  } = useContext(AppContext);
 
   return (
     <Router>
@@ -44,7 +49,7 @@ const App = () => {
             <About />
           </Route>
 
-          <Route path="/stocks/:tickerParam" component={StockPage}>
+          <Route path="/stocks/:ticker" component={Search}>
             <StockPage />
           </Route>
           <Route exact path="/stocks">

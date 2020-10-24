@@ -7,14 +7,14 @@ import { FiSearch } from "react-icons/fi";
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
-const Search = () => {
+const Search = ({ match, location }) => {
   const [data, setdata] = React.useState();
   const [tickerInput, setTickerInput] = React.useState();
+
   const { ticker, setTicker } = useContext(AppContext);
 
   const { tickerParam } = useParams();
   console.log(tickerParam, "look here");
-  // const confirmTicker = tickerParam
 
   const handleChange = (event) => {
     setTickerInput(event.target.value);
@@ -75,6 +75,7 @@ const Search = () => {
             })}
           </div>
         </SuggestionContainer>
+        <div>Query Params: {location.search}</div>
       </Wrapper>
     </>
   );
