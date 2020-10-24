@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { AppContext } from "../AppContext/AppContext";
+
 import FX from "../FX/FX";
 
 require("dotenv").config();
@@ -25,7 +25,7 @@ const Homepage = () => {
 
         // Examine the text in the response
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           setdata(data);
         });
       })
@@ -45,10 +45,10 @@ const Homepage = () => {
         <FX />
         <NewsWrapper>
           <h1>Global Market News</h1>
-          {Object.values(data["data"]).map((news) => {
+          {Object.values(data["data"]).map((news, index) => {
             return (
-              <NewsContainer>
-                <Title>{news.title}</Title>
+              <NewsContainer key={index}>
+                <Title key={index}>{news.title}</Title>
                 <div>{news.date}</div>
                 <img src={news.image_url} alt="news"></img>
 

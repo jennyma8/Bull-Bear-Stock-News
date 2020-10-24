@@ -13,8 +13,8 @@ const Search = ({ match, location }) => {
 
   const { ticker, setTicker } = useContext(AppContext);
 
-  const { tickerParam } = useParams();
-  console.log(tickerParam, "look here");
+  // const { tickerParam } = useParams();
+  // console.log(tickerParam, "look here");
 
   const handleChange = (event) => {
     setTickerInput(event.target.value);
@@ -64,18 +64,17 @@ const Search = ({ match, location }) => {
         <SuggestionContainer>
           <h1>Suggested Results</h1>
           <div>
-            {Object.values(data["bestMatches"]).map((stock) => {
+            {Object.values(data["bestMatches"]).map((stock, index) => {
               return (
                 <>
-                  <div>
-                    {stock["1. symbol"]} - {stock["2. name"]}
-                  </div>
+                  <span key={index}>{stock["1. symbol"]}</span>
+                  {"-"}
+                  <span key={"name" + index}>{stock["2. name"]}</span>
                 </>
               );
             })}
           </div>
         </SuggestionContainer>
-        <div>Query Params: {location.search}</div>
       </Wrapper>
     </>
   );

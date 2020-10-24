@@ -47,9 +47,8 @@ const Company = () => {
         <div>Sector: {data.Sector}</div>
         <div>Industry: {data.Industry}</div>
         <div>Address: {data.Address}</div>
-        {/* <div>52 Week High: {data.52WeekHigh}</div>
-        <div>52 Weed Low: {data.52WeekLow}</div> */}
       </Wrapper>
+      <div>Please note regarding limited access. {data.Note}</div>
     </>
   );
 };
@@ -59,9 +58,6 @@ const Company = () => {
   return <div>{date}<div>Last price: {stockPrice["4. close"]}</div>;
 })}
 </div> */
-
-// company overview
-// https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
 
 const Wrapper = styled.div`
   background-color: lightgrey;

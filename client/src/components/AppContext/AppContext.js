@@ -59,7 +59,7 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         });
     }
   }, [user]);
-  console.log(user);
+  // console.log(user);
   return (
     <AppContext.Provider
       value={{

@@ -44,9 +44,9 @@ const StockNews = () => {
     <>
       <Wrapper>
         <h1>Recent News</h1>
-        {Object.values(data["data"]).map((news) => {
+        {Object.values(data["data"]).map((news, index) => {
           return (
-            <NewsContainer>
+            <NewsContainer key={index}>
               <div>{news.date}</div>
               <img src={news.image_url} alt="news"></img>
 

@@ -24,7 +24,7 @@ const FX = () => {
 
         // Examine the text in the response
         response.json().then(function (data) {
-          console.log(data);
+          //   console.log(data);
           setdata(data);
         });
       })
@@ -51,6 +51,7 @@ const FX = () => {
           </strong>
         </div>
       </Wrapper>
+      <div>Please note regarding limited access. {data.Note}</div>
     </>
   );
 };
