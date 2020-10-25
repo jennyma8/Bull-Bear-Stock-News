@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Avatar from "../Avatar/Avatar";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { AppContext } from "../../components/AppContext/AppContext";
 import StockPage from "../../components/StockPage/StockPage";
 import Search from "../../components/Search/Search";
@@ -16,6 +16,7 @@ const App = () => {
     appUser,
     signInWithGoogle,
     handleSignOut,
+
     ticker,
     setTicker,
   } = useContext(AppContext);
@@ -43,7 +44,7 @@ const App = () => {
             <About />
           </Route>
 
-          <Route path={`/stocks/:${ticker}`} component={Search}>
+          <Route path="/stocks/:ticker">
             <StockPage />
           </Route>
           <Route exact path="/stocks">

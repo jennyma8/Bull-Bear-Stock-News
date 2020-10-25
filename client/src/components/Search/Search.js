@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import { FiSearch } from "react-icons/fi";
@@ -7,21 +7,21 @@ import { FiSearch } from "react-icons/fi";
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
-const Search = ({ match, location }) => {
+const Search = () => {
   const [data, setdata] = React.useState();
   const [tickerInput, setTickerInput] = React.useState();
-
   const { ticker, setTicker } = useContext(AppContext);
-
-  // const { tickerParam } = useParams();
-  // console.log(tickerParam, "look here");
 
   const handleChange = (event) => {
     setTickerInput(event.target.value);
   };
 
+  const someFunc = () => {
+    setTicker(tickerInput);
+  };
+
   React.useEffect(() => {
-    //input keywords0
+    //input keywords
     fetch(
       `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
     )
@@ -57,7 +57,7 @@ const Search = ({ match, location }) => {
             onChange={handleChange}
             value={tickerInput}
           ></SearchInput>
-          <Button type="button" onClick={() => setTicker(tickerInput)}>
+          <Button type="button" onClick={someFunc}>
             <FiSearch size={25} />
           </Button>
         </form>

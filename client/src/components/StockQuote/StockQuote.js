@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-
+import { useParams } from "react-router";
 import { AppContext } from "../AppContext/AppContext";
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
@@ -8,8 +8,6 @@ const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 const StockQuote = () => {
   const [data, setdata] = React.useState();
   const { ticker } = useContext(AppContext);
-
-  //create new state of ticket and setTicker
 
   React.useEffect(() => {
     //input symbol
@@ -53,6 +51,7 @@ const StockQuote = () => {
         <div>
           Last Update: {Object.entries(data["Time Series (1min)"])[0][0]}
         </div>
+        <div>Please note regarding limit access. {data.Note}</div>
       </Wrapper>
     </>
   );
