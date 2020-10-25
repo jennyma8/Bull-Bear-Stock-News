@@ -11,6 +11,7 @@ const Search = () => {
   const [data, setdata] = React.useState();
   const [tickerInput, setTickerInput] = React.useState();
   const { ticker, setTicker } = useContext(AppContext);
+  let { id } = useParams();
 
   const handleChange = (event) => {
     setTickerInput(event.target.value);
@@ -18,6 +19,12 @@ const Search = () => {
 
   const someFunc = () => {
     setTicker(tickerInput);
+    // handleIdChange();
+  };
+
+  const handleIdChange = () => {
+    id = tickerInput;
+    console.log(id);
   };
 
   React.useEffect(() => {
