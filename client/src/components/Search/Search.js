@@ -17,16 +17,14 @@ const Search = () => {
     setTickerInput(event.target.value);
   };
 
-  const someFunc = () => {
-    setTicker(tickerInput);
-    // handleIdChange();
-  };
-
   const handleIdChange = () => {
-    id = tickerInput;
+    let id = tickerInput;
     console.log(id);
   };
-
+  const someFunc = () => {
+    setTicker(tickerInput);
+    handleIdChange();
+  };
   React.useEffect(() => {
     //input keywords
     fetch(
@@ -49,7 +47,7 @@ const Search = () => {
       .catch(function (err) {
         console.log("Fetch Error :-S", err);
       });
-  }, [ticker]);
+  }, [ticker, id]);
 
   if (!data) {
     return <h1>loading</h1>;
@@ -74,9 +72,9 @@ const Search = () => {
             {Object.values(data["bestMatches"]).map((stock, index) => {
               return (
                 <>
-                  <span key={index}>{stock["1. symbol"]}</span>
-                  {"-"}
-                  <span key={"name" + index}>{stock["2. name"]}</span>
+                  <div key={index}>
+                    {stock["1. symbol"]}-{stock["2. name"]}
+                  </div>
                 </>
               );
             })}

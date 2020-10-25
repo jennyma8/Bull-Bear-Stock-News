@@ -9,8 +9,9 @@ const Profile = () => {
     <>
       <Wrapper>
         <div>Hi {appUser.displayName}!</div>
-
+        <div>{appUser.email}</div>
         <div>Watchlist: {appUser.Watchlist}</div>
+
         <div>{appUser.Hobbies}</div>
       </Wrapper>
     </>
