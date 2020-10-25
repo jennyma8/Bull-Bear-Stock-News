@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router";
+
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import { FiSearch } from "react-icons/fi";
@@ -11,47 +11,39 @@ const Search = () => {
   const [data, setdata] = React.useState();
   const [tickerInput, setTickerInput] = React.useState();
   const { ticker, setTicker } = useContext(AppContext);
-  let { id } = useParams();
 
   const handleChange = (event) => {
-    setTickerInput(event.target.value);
+    const tickerValue = event.target.value;
+    setTickerInput(tickerValue); //input
   };
 
-  const handleIdChange = () => {
-    let id = tickerInput;
-    console.log(id);
-  };
-  const someFunc = () => {
-    setTicker(tickerInput);
-    handleIdChange();
-  };
-  React.useEffect(() => {
-    //input keywords
-    fetch(
-      `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+  // React.useEffect(() => {
+  //   //input keywords
+  //   fetch(
+  //     `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${ticker}&apikey=${apiKeyAlpha}`
+  //   )
+  //     .then(function (response) {
+  //       if (response.status !== 200) {
+  //         console.log(
+  //           "Looks like there was a problem. Status Code: " + response.status
+  //         );
+  //         return;
+  //       }
 
-        // Examine the text in the response
-        response.json().then(function (data) {
-          //   console.log(data);
-          setdata(data);
-        });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
-  }, [ticker, id]);
+  //       // Examine the text in the response
+  //       response.json().then(function (data) {
+  //         //   console.log(data);
+  //         setdata(data);
+  //       });
+  //     })
+  //     .catch(function (err) {
+  //       console.log("Fetch Error :-S", err);
+  //     });
+  // }, [ticker]);
 
-  if (!data) {
-    return <h1>loading</h1>;
-  }
+  // if (!data) {
+  //   return <h1>loading</h1>;
+  // }
 
   return (
     <>
@@ -62,13 +54,13 @@ const Search = () => {
             onChange={handleChange}
             value={tickerInput}
           ></SearchInput>
-          <Button type="button" onClick={someFunc}>
+          <Button type="button" onClick={() => setTicker(tickerInput)}>
             <FiSearch size={25} />
           </Button>
         </form>
         <SuggestionContainer>
           <h1>Suggested Results</h1>
-          <div>
+          {/* <div>
             {Object.values(data["bestMatches"]).map((stock, index) => {
               return (
                 <>
@@ -78,7 +70,7 @@ const Search = () => {
                 </>
               );
             })}
-          </div>
+          </div> */}
         </SuggestionContainer>
       </Wrapper>
     </>

@@ -16,7 +16,7 @@ const Nav = () => {
         </TitleContainer>
         <Bar>
           <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/stocks/AAPL">Stocks</StyledLink>
+          <StyledLink to="/stocks">Stocks</StyledLink>
           <StyledLink to="/profile">Profile</StyledLink>
           <StyledLink to="/about">About</StyledLink>
         </Bar>
