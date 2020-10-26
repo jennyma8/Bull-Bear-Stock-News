@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useParams } from "react-router-dom";
 import StockQuote from "../../components/StockQuote/StockQuote";
 import StockNews from "../StockNews/StockNews";
 import Search from "../../components/Search/Search";
@@ -24,12 +24,45 @@ const StockPage = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  @media (max-width: 1200px) {
+    /* ... */
+  }
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 const StockWrapper = styled.div`
   display: flex;
+  @media (max-width: 1200px) {
+    /* ... */
+  }
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
-const QuoteWrapper = styled.div``;
+const QuoteWrapper = styled.div`
+  margin: 50px;
+  height: 100%;
+  border: 1px solid black;
+`;
 
 export default StockPage;

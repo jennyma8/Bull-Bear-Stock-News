@@ -41,14 +41,15 @@ const Company = () => {
     <>
       <Wrapper>
         <div>Company Name: {data.Name}</div>
-        <div>Description: {data.Description}</div>
+        <Desc>
+          <strong>Description:</strong> {data.Description}
+        </Desc>
         <div>Exchange: {data.Exchange}</div>
         <div>Country: {data.Country}</div>
         <div>Sector: {data.Sector}</div>
         <div>Industry: {data.Industry}</div>
         <div>Address: {data.Address}</div>
       </Wrapper>
-      <div>Please note regarding limited access. {data.Note}</div>
     </>
   );
 };
@@ -60,6 +61,11 @@ const Company = () => {
 </div> */
 
 const Wrapper = styled.div`
+  margin-top: 20px;
   background-color: lightgrey;
+`;
+
+const Desc = styled.div`
+  padding: 30px;
 `;
 export default Company;

@@ -9,10 +9,11 @@ const Profile = () => {
     <>
       <Wrapper>
         <div>Hi {appUser.displayName}!</div>
-        <div>{appUser.email}</div>
-        <div>Watchlist: {appUser.Watchlist}</div>
+        <h1>My profile</h1>
+        <div>Email address: {appUser.email}</div>
+        <div>Watchlist: </div>
 
-        <div>{appUser.Hobbies}</div>
+        <div>Language: </div>
       </Wrapper>
     </>
   );
@@ -20,6 +21,8 @@ const Profile = () => {
 
 const Wrapper = styled.div`
   margin-top: 200px;
+  margin-left: 50px;
+  min-height: 500px;
 `;
 
 export default Profile;

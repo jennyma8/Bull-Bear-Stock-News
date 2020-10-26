@@ -51,7 +51,6 @@ const StockQuote = () => {
         <div>
           Last Update: {Object.entries(data["Time Series (1min)"])[0][0]}
         </div>
-        <div>Please note regarding limit access. {data.Note}</div>
       </Wrapper>
     </>
   );
@@ -67,6 +66,7 @@ const StockQuote = () => {
 // https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
 
 const Wrapper = styled.div`
-  background-color: lightgrey;
+  background-color: white;
+  font-size: 30px;
 `;
 export default StockQuote;

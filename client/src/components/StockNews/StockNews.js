@@ -50,9 +50,9 @@ const StockNews = () => {
               <div>{news.date}</div>
               <img src={news.image_url} alt="news"></img>
 
-              <div>{news.source_name}</div>
+              <div>Source: {news.source_name}</div>
               <div>{news.title}</div>
-              <div>{news.text}</div>
+              <div>Summary: {news.text}</div>
               <a href={news.news_url}>Read more...</a>
             </NewsContainer>
           );

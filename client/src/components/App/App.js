@@ -6,10 +6,11 @@ import { AppContext } from "../../components/AppContext/AppContext";
 import StockPage from "../../components/StockPage/StockPage";
 import Search from "../../components/Search/Search";
 import Nav from "../../components/Nav/Nav";
-import About from "../../components/About/About";
+
 import Homepage from "../../components/Homepage/Homepage";
 import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
+import About from "../About/About";
 
 const App = () => {
   const {
@@ -40,16 +41,16 @@ const App = () => {
         </StyledHeader>
 
         <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-
           <Route exact path="/stocks">
             <StockPage />
           </Route>
           <Route path="/profile">
             <Profile />
           </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+
           <Route exact path="/">
             <Homepage />
           </Route>
