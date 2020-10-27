@@ -19,6 +19,15 @@ const Profile = () => {
     console.log(todo, ...todos);
   };
 
+  const updateTodo = (todoId, newValue) => {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+    setTodos((prev) =>
+      prev.map((item) => (item.id === todoId ? newValue : item))
+    );
+  };
+
   const removeTodo = (id) => {
     const removeArr = [...todos].filter((todo) => todo.id !== id);
 
@@ -46,6 +55,7 @@ const Profile = () => {
           todos={todos}
           completeTodo={completeTodo}
           removeTodo={removeTodo}
+          updateTodo={updateTodo}
         />
       </Wrapper>
     </>
