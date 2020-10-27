@@ -26,3 +26,4 @@ const Wrapper = styled.div`
 `;
 
 export default Profile;
+//todo list , each link history .push /stock/ticker
