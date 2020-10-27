@@ -44,6 +44,9 @@ const App = () => {
           <Route exact path="/stocks">
             <StockPage />
           </Route>
+          <Route path="/stocks/:id">
+            <StockPage />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>

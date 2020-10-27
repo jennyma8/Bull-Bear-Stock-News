@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import { FiSearch } from "react-icons/fi";
@@ -9,9 +9,18 @@ const Search = () => {
   const [tickerInput, setTickerInput] = React.useState();
   const { ticker, setTicker } = useContext(AppContext);
 
+  const { id } = useParams();
+  console.log(id);
+
   const handleChange = (event) => {
     setTickerInput(event.target.value); //input
   };
+
+  React.useEffect(() => {
+    if (id !== undefined) {
+      setTicker(id);
+    }
+  }, []);
 
   return (
     <>

@@ -10,26 +10,28 @@ const Company = () => {
   const { ticker } = useContext(AppContext);
 
   React.useEffect(() => {
-    fetch(
-      `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${apiKeyAlpha}`
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+    if (ticker !== "") {
+      fetch(
+        `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${apiKeyAlpha}`
+      )
+        .then(function (response) {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
 
-        // Examine the text in the response
-        response.json().then(function (data) {
-          console.log(data);
-          setdata(data);
+          // Examine the text in the response
+          response.json().then(function (data) {
+            console.log(data);
+            setdata(data);
+          });
+        })
+        .catch(function (err) {
+          console.log("Fetch Error :-S", err);
         });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
+    }
   }, [ticker]);
 
   if (!data) {

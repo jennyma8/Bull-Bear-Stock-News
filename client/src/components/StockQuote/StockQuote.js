@@ -12,27 +12,29 @@ const StockQuote = () => {
   React.useEffect(() => {
     //input symbol
     //INTRADAY 1MIN
-    // console.log(ticker);
-    fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
+    // console.log(ticker, "IN STOCK QUOTE");
+    if (ticker !== "") {
+      fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
+      )
+        .then(function (response) {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
 
-        // Examine the text in the response
-        response.json().then(function (data) {
-          console.log(data);
-          setdata(data);
+          // Examine the text in the response
+          response.json().then(function (data) {
+            console.log(data);
+            setdata(data);
+          });
+        })
+        .catch(function (err) {
+          console.log("Fetch Error :-S", err);
         });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
+    }
   }, [ticker]);
 
   if (!data) {
