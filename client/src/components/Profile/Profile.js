@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../components/AppContext/AppContext";
+import WatchlistItems from "../WatchlistItems/WatchlistItems";
 
 const Profile = () => {
   const { appUser } = useContext(AppContext);
-  console.log(appUser);
+  // console.log(appUser);
+
   return (
     <>
       <Wrapper>
@@ -12,8 +14,6 @@ const Profile = () => {
         <h1>My profile</h1>
         <div>Email address: {appUser.email}</div>
         <div>Watchlist: </div>
-
-        <div>Language: </div>
       </Wrapper>
     </>
   );
