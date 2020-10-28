@@ -7,31 +7,31 @@ import WatchlistForm from "../WatchlistForm/WatchlistForm";
 const Profile = () => {
   const { appUser } = useContext(AppContext);
   // console.log(appUser);
-  const [todos, setTodos] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
-  const addTodo = (todo) => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
+  const addStock = (stock) => {
+    if (!stock.text || /^\s*$/.test(stock.text)) {
       return;
     }
-    const newTodos = [todo, ...todos];
+    const newStock = [stock, ...watchlist];
 
-    setTodos(newTodos);
-    console.log(todo, ...todos);
+    setWatchlist(newStock);
+    console.log(stock, ...watchlist);
   };
 
-  const updateTodo = (todoId, newValue) => {
+  const updateTicker = (stockId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
-    setTodos((prev) =>
-      prev.map((item) => (item.id === todoId ? newValue : item))
+    setWatchlist((prev) =>
+      prev.map((item) => (item.id === stockId ? newValue : item))
     );
   };
 
-  const removeTodo = (id) => {
-    const removeArr = [...todos].filter((todo) => todo.id !== id);
+  const removeTicker = (id) => {
+    const removeArr = [...watchlist].filter((stock) => stock.id !== id);
 
-    setTodos(removeArr);
+    setWatchlist(removeArr);
   };
 
   return (
@@ -40,13 +40,13 @@ const Profile = () => {
         <div>Hi {appUser.displayName}!</div>
         <h1>My profile</h1>
         <div>Email address: {appUser.email}</div>
-        <h1 className="todo-app">Watchlist: </h1>
+        <h1 className="watchlist-component">Watchlist: </h1>
 
-        <WatchlistForm onSubmit={addTodo} />
+        <WatchlistForm onSubmit={addStock} />
         <Watchlist
-          todos={todos}
-          removeTodo={removeTodo}
-          updateTodo={updateTodo}
+          watchlist={watchlist}
+          removeTicker={removeTicker}
+          updateTicker={updateTicker}
         />
       </Wrapper>
     </>

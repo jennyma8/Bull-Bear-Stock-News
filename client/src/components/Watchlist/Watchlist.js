@@ -4,14 +4,14 @@ import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { TiEdit } from "react-icons/ti";
 
-const Watchlist = ({ todos, removeTodo, updateTodo }) => {
+const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
 
   const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
+    updateTicker(edit.id, value);
     setEdit({
       id: null,
       value: "",
@@ -21,17 +21,17 @@ const Watchlist = ({ todos, removeTodo, updateTodo }) => {
   if (edit.id) {
     return <WatchlistForm edit={edit} onSubmit={submitUpdate} />;
   }
-  return todos.map((todo, index) => (
+  return watchlist.map((stock, index) => (
     <Wrapper key={index}>
-      <WatchStock key={todo.id}>{todo.text}</WatchStock>
+      <WatchStock key={stock.id}>{stock.text}</WatchStock>
 
       <div className="icons">
         <AiOutlineCloseCircle
-          onClick={() => removeTodo(todo.id)}
+          onClick={() => removeTicker(stock.id)}
           className="delete-icon"
         />
         <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: stock.id, value: stock.text })}
           className="edit-icon"
         />
       </div>
