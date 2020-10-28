@@ -29,33 +29,25 @@ const Wrapper = styled.div`
     /* ... */
   }
   @media (max-width: 1024px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 `;
 
 const StockWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+
   @media (max-width: 1200px) {
     /* ... */
   }
   @media (max-width: 1024px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  @media (max-width: 768px) {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
@@ -63,18 +55,15 @@ const QuoteWrapper = styled.div`
   margin: 50px;
   border: 1px solid black;
   background: red;
+  height: 100%;
 
   @media (max-width: 1200px) {
-    height: 100%;
   }
 
   @media (max-width: 1024px) {
-    //issue with height
-    height: 100%;
   }
 
   @media (max-width: 768px) {
-    height: 100%;
   }
 `;
 
