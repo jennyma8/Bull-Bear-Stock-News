@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
+import { FcCurrencyExchange } from "react-icons/fc";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -41,7 +42,10 @@ const FX = () => {
   return (
     <>
       <Wrapper>
-        <h1>Exchange Rate</h1>
+        <h1>
+          Exchange Rate
+          <FcCurrencyExchange />
+        </h1>
         <div>From:{data["Meta Data"]["2. From Symbol"]}</div>
         <div>To:{data["Meta Data"]["3. To Symbol"]}</div>
         <div>
@@ -51,7 +55,6 @@ const FX = () => {
           </strong>
         </div>
       </Wrapper>
-      <div>Please note regarding limited access. {data.Note}</div>
     </>
   );
 };

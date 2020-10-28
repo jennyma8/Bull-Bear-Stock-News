@@ -58,9 +58,8 @@ const App = () => {
             <Homepage />
           </Route>
         </Switch>
-
-        <Footer />
       </StyledPageWrapper>
+      <Footer />
     </Router>
   );
 };

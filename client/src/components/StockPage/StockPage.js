@@ -61,8 +61,16 @@ const StockWrapper = styled.div`
 
 const QuoteWrapper = styled.div`
   margin: 50px;
-  height: 100%;
   border: 1px solid black;
+  @media (max-width: 1200px) {
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+  }
+
+  @media (max-width: 768px) {
+  }
 `;
 
 export default StockPage;

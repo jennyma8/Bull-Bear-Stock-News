@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { TiEdit } from "react-icons/ti";
 
 const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
+  let history = useHistory();
+
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -17,14 +20,19 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
       value: "",
     });
   };
-
+  const handleHistory = (text) => {
+    history.push(`/stocks/${text}`);
+    console.log(text);
+  };
   if (edit.id) {
     return <WatchlistForm edit={edit} onSubmit={submitUpdate} />;
   }
   return watchlist.map((stock, index) => (
     <Wrapper key={index}>
       <WatchStock key={stock.id}>{stock.text}</WatchStock>
-
+      <button type="button" onClick={() => handleHistory(stock.text)}>
+        Consult Quote and News
+      </button>
       <div className="icons">
         <AiOutlineCloseCircle
           onClick={() => removeTicker(stock.id)}
