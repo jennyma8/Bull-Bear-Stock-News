@@ -33,15 +33,7 @@ const Profile = () => {
 
     setTodos(removeArr);
   };
-  const completeTodo = (id) => {
-    let updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
+
   return (
     <>
       <Wrapper>
@@ -53,7 +45,6 @@ const Profile = () => {
         <WatchlistForm onSubmit={addTodo} />
         <Watchlist
           todos={todos}
-          completeTodo={completeTodo}
           removeTodo={removeTodo}
           updateTodo={updateTodo}
         />

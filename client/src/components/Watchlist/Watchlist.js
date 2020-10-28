@@ -4,7 +4,7 @@ import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { TiEdit } from "react-icons/ti";
 
-const Watchlist = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Watchlist = ({ todos, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -22,13 +22,9 @@ const Watchlist = ({ todos, completeTodo, removeTodo, updateTodo }) => {
     return <WatchlistForm edit={edit} onSubmit={submitUpdate} />;
   }
   return todos.map((todo, index) => (
-    <div
-      className={todo.isComplete ? "todo-row complete" : "todo-row"}
-      key={index}
-    >
-      <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
-      </div>
+    <Wrapper key={index}>
+      <WatchStock key={todo.id}>{todo.text}</WatchStock>
+
       <div className="icons">
         <AiOutlineCloseCircle
           onClick={() => removeTodo(todo.id)}
@@ -39,8 +35,18 @@ const Watchlist = ({ todos, completeTodo, removeTodo, updateTodo }) => {
           className="edit-icon"
         />
       </div>
-    </div>
+    </Wrapper>
   ));
 };
 
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const WatchStock = styled.div`
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  width: 100px;
+  padding: 5px;
+`;
 export default Watchlist;

@@ -26,7 +26,7 @@ const WatchlistForm = (props) => {
   };
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       {props.edit ? (
         <>
           <input
@@ -34,13 +34,10 @@ const WatchlistForm = (props) => {
             placeholder="Update ticker"
             value={input}
             name="text"
-            className="todo-input-edit"
             onChange={handleChange}
             ref={inputRef}
           ></input>
-          <button onClick={handleSubmit} className="todo-button-edit">
-            Update
-          </button>
+          <button onClick={handleSubmit}>Update</button>
         </>
       ) : (
         <>
@@ -49,13 +46,10 @@ const WatchlistForm = (props) => {
             placeholder="Add a ticker"
             value={input}
             name="text"
-            className="todo-input"
             onChange={handleChange}
             ref={inputRef}
           ></input>
-          <button onClick={handleSubmit} className="todo-button">
-            Add
-          </button>
+          <button onClick={handleSubmit}>Add</button>
         </>
       )}
     </form>
