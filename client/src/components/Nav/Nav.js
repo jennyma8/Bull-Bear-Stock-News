@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { AiOutlineStock } from "react-icons/ai";
+import LogoBB from "../../assets/LogoBB.JPG";
 
 const Nav = () => {
   return (
@@ -10,6 +11,7 @@ const Nav = () => {
         <TitleContainer>
           <LogoSrc exact to="/">
             <AiOutlineStock size={32} />
+            {/* <img src={LogoBB} size={15}></img> */}
             {/* <img src={Logo} alt="Logo" style={{ height: 70, width: 70 }} /> */}
           </LogoSrc>
           <Title>Bull and Bear Stock Market News</Title>

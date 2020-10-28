@@ -62,14 +62,19 @@ const StockWrapper = styled.div`
 const QuoteWrapper = styled.div`
   margin: 50px;
   border: 1px solid black;
+  background: red;
+
   @media (max-width: 1200px) {
     height: 100%;
   }
 
   @media (max-width: 1024px) {
+    //issue with height
+    height: 100%;
   }
 
   @media (max-width: 768px) {
+    height: 100%;
   }
 `;
 
