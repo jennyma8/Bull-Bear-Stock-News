@@ -13,6 +13,7 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
     value: "",
   });
 
+  //handle
   const submitUpdate = (value) => {
     updateTicker(edit.id, value);
     setEdit({
@@ -25,8 +26,15 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
     console.log(text);
   };
   if (edit.id) {
-    return <WatchlistForm edit={edit} onSubmit={submitUpdate} />;
+    return (
+      <>
+        <WatchlistForm edit={edit} onSubmit={submitUpdate} />
+      </>
+    );
   }
+
+  //watchlist with link to stockpage
+  //autocomplete search bar from all tickers local json file
   return watchlist.map((stock, index) => (
     <Wrapper key={index}>
       <WatchStock key={stock.id}>{stock.text}</WatchStock>
