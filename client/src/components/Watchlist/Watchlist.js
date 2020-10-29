@@ -25,6 +25,7 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
     history.push(`/stocks/${text}`);
     console.log(text);
   };
+
   if (edit.id) {
     return (
       <>

@@ -21,6 +21,8 @@ const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
+const firebaseDB = firebaseApp.database().ref();
+
 const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
   const [message, setMessage] = useState("");
@@ -45,11 +47,9 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         },
         body: JSON.stringify({
           Watchlist: user.Watchlist,
-          Language: user.language,
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
-          Hobbies: user.tennis,
         }),
       })
         .then((res) => res.json())
@@ -77,4 +77,6 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
 };
 
 // export default AppProvider;
-export default withFirebaseAuth({ providers, firebaseAppAuth })(AppProvider);
+export default withFirebaseAuth({ providers, firebaseAppAuth, firebaseDB })(
+  AppProvider
+);

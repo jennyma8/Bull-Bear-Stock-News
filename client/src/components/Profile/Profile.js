@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { AppContext } from "../../components/AppContext/AppContext";
 import Watchlist from "../Watchlist/Watchlist";
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
+// import firebaseDB from "../../components/AppContext/AppContext";
 
 const Profile = () => {
   const { appUser } = useContext(AppContext);
-  // console.log(appUser);
+  console.log(appUser);
   const [watchlist, setWatchlist] = useState([]);
 
+  //handle
   const addStock = (stock) => {
     if (!stock.text || /^\s*$/.test(stock.text)) {
       return;
@@ -17,6 +19,8 @@ const Profile = () => {
 
     setWatchlist(newStock);
     console.log(stock, ...watchlist);
+
+    // firebaseDB.child("watchlist").push(stock);
   };
 
   const updateTicker = (stockId, newValue) => {
@@ -33,6 +37,13 @@ const Profile = () => {
 
     setWatchlist(removeArr);
   };
+
+  //firebase database
+  // const addOrEdit = (obj) => {
+  //   firebaseDB.child("watchlist").push(obj, (err) => {
+  //     if (err) console.log(err);
+  //   });
+  // };
 
   return (
     <>
