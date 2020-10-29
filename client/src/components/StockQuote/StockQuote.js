@@ -38,7 +38,11 @@ const StockQuote = () => {
   }, [ticker]);
 
   if (!data) {
-    return <h1>loading</h1>;
+    if (ticker === "") {
+      return <div></div>;
+    } else {
+      return <h1>loading</h1>;
+    }
   }
 
   //format: object of object

@@ -12,31 +12,36 @@ const StockNews = () => {
   React.useEffect(() => {
     //ticker params
     //company news
+    if (ticker !== "") {
+      fetch(
+        `https://stocknewsapi.com/api/v1?tickers=${ticker}&items=50&token=${apiKey}`
+      )
+        .then(function (response) {
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
 
-    fetch(
-      `https://stocknewsapi.com/api/v1?tickers=${ticker}&items=50&token=${apiKey}`
-    )
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
-
-        // Examine the text in the response
-        response.json().then(function (data) {
-          // console.log(data);
-          setdata(data);
+          // Examine the text in the response
+          response.json().then(function (data) {
+            // console.log(data);
+            setdata(data);
+          });
+        })
+        .catch(function (err) {
+          console.log("Fetch Error :-S", err);
         });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
+    }
   }, [ticker]);
 
   if (!data) {
-    return <h1>loading</h1>;
+    if (ticker === "") {
+      return <></>;
+    } else {
+      return <h1>loading</h1>;
+    }
   }
 
   //format: array of object

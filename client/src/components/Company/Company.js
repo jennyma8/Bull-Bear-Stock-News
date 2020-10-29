@@ -35,7 +35,11 @@ const Company = () => {
   }, [ticker]);
 
   if (!data) {
-    return <h1>loading</h1>;
+    if (ticker === "") {
+      return <></>;
+    } else {
+      return <h1>loading</h1>;
+    }
   }
 
   //format: object of object

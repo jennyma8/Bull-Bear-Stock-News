@@ -30,9 +30,6 @@ const App = () => {
           {appUser && appUser.email ? (
             <StyledUserContainer>
               <Avatar src={appUser.photoURL} />
-              {/* <p>
-                {appUser.displayName} ({appUser.email})
-              </p> */}
               <button onClick={handleSignOut}>Sign Out</button>
             </StyledUserContainer>
           ) : (

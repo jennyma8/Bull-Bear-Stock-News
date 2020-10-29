@@ -54,6 +54,7 @@ const WatchlistForm = (props) => {
           <>
             <input
               type="text"
+              id="UpdateTicker"
               placeholder="Update ticker"
               value={input}
               name="text"
@@ -66,6 +67,7 @@ const WatchlistForm = (props) => {
           <>
             <input
               type="text"
+              id="AddTicker"
               placeholder="Add a ticker"
               value={input}
               name="text"
