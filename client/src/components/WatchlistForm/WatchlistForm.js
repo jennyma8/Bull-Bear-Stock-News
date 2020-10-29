@@ -18,7 +18,9 @@ const WatchlistForm = (props) => {
   const handleChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
-    setDisplay(!display);
+    if (e.target.value.length > 0) {
+      setDisplay(true);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -38,10 +40,11 @@ const WatchlistForm = (props) => {
   };
 
   //   console.log(Data); success
-
+  //work on case sensitive
+  // .filter(({ name }) => name.indexOf(search.toLowerCase()) > -1)
   if (input.length > 0) {
-    newData = newData.filter((i) => {
-      return i.name.match(input) || i.ticker.match(input);
+    newData = newData.filter((stock) => {
+      return stock.name.match(input) || stock.ticker.match(input);
     });
   }
   return (
