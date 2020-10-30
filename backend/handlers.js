@@ -37,6 +37,8 @@ const queryDatabase = async (key) => {
 
   return data;
 };
+
+//user
 const getUser = async (email) => {
   const data = (await queryDatabase(`appUsers`)) || {};
   const dataValue = Object.keys(data)
@@ -49,13 +51,17 @@ const getUser = async (email) => {
 const createUser = async (req, res) => {
   const returningUser = await getUser(req.body.email);
   console.log(returningUser);
+
   if (returningUser) {
-    res
-      .status(200)
-      .json({ status: 200, data: req.body, message: "returning user" });
+    res.status(200).json({
+      status: 200,
+      data: req.body,
+      message: "returning user",
+    });
     return;
   } else {
     const appUsersRef = db.ref("appUsers");
+    //push to Firebase here?
     appUsersRef.push(req.body).then(() => {
       res.status(200).json({
         status: 200,
