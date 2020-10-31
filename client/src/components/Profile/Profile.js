@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../components/AppContext/AppContext";
 import Watchlist from "../Watchlist/Watchlist";
@@ -12,11 +12,12 @@ const Profile = () => {
   // console.log(appUser);
 
   const [watchlist, setWatchlist] = useState([]);
-
+  const [newWatchlist, setNewWatchlist] = useState([]);
   //handle
   //push watchlist array in database
   const addStock = (stock) => {
-    db.ref("appUsers").push({ stock });
+    db.ref(`watchlist`).push(stock);
+    //create your own endpoint with`db.ref("watchlist").child(id).setValue({stock})`
 
     if (!stock.text || /^\s*$/.test(stock.text)) {
       return;
@@ -42,13 +43,39 @@ const Profile = () => {
     setWatchlist(removeArr);
   };
 
-  return (
+  //fetch watchlist from firebase
+  useEffect(() => {
+    // fetch("/watchlist", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //     setWatchlist(json);
+    //   });
+
+    db.ref("watchlist").on("value", (snapshot) => {
+      snapshot.forEach((snap) => {
+        let data = [];
+        data.push(snap.val());
+        console.log(data);
+        setNewWatchlist(data); //not working
+        console.log(newWatchlist); //empty
+      });
+    });
+  }, []);
+
+  return newWatchlist.map((stock, index) => (
     <>
       <Wrapper>
         <div>Hi {appUser.displayName}!</div>
         <h1>My profile</h1>
         <div>Email address: {appUser.email}</div>
         <h1 className="watchlist-component">Watchlist: </h1>
+        {/* <div>{stock.text}</div> */}
 
         <WatchlistForm onSubmit={addStock} />
         <Watchlist
@@ -58,7 +85,7 @@ const Profile = () => {
         />
       </Wrapper>
     </>
-  );
+  ));
 };
 
 const Wrapper = styled.div`
@@ -68,4 +95,3 @@ const Wrapper = styled.div`
 `;
 
 export default Profile;
-//todo list , each link history .push /stock/ticker
