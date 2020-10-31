@@ -17,7 +17,6 @@ const Profile = () => {
   //push watchlist array in database
   const addStock = (stock) => {
     db.ref(`watchlist`).push(stock);
-    //create your own endpoint with`db.ref("watchlist").child(id).setValue({stock})`
 
     if (!stock.text || /^\s*$/.test(stock.text)) {
       return;
@@ -45,31 +44,19 @@ const Profile = () => {
 
   //fetch watchlist from firebase
   useEffect(() => {
-    // fetch("/watchlist", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     console.log(json);
-    //     setWatchlist(json);
-    //   });
-
     db.ref("watchlist").on("value", (snapshot) => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       let data = [];
 
       snapshot.forEach((snap) => {
         data.push(snap.val());
-        console.log(data);
+        // console.log(data);
       });
 
       setWatchlist(data);
     });
   }, []);
-  console.log(watchlist);
+  // console.log(watchlist);
 
   return (
     <>

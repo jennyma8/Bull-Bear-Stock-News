@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const { createUser } = require("./handlers");
 const { getUser } = require("./handlers");
-const { getWatchlist } = require("./handlers");
+// const { getWatchlist } = require("./handlers");
 
 require("dotenv").config();
 const PORT = process.env.PORT || 8000;
@@ -32,6 +32,6 @@ express()
   .post("/users", createUser)
 
   //watchlist
-  .get("/watchlist", getWatchlist)
+  // .get("/watchlist", getWatchlist)
 
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));

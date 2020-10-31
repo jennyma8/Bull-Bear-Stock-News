@@ -62,7 +62,7 @@ const createUser = async (req, res) => {
     return;
   } else {
     const appUsersRef = db.ref("appUsers");
-    //push to Firebase here?
+
     appUsersRef.push(req.body).then(() => {
       res.status(200).json({
         status: 200,
@@ -74,15 +74,15 @@ const createUser = async (req, res) => {
 };
 
 //watchlist
-const getWatchlist = async () => {
-  const data = (await queryDatabase(`watchlist`)) || {};
-  const dataValue = Object.keys(data).map((item) => data[item]);
+// const getWatchlist = async () => {
+//   const data = (await queryDatabase(`watchlist`)) || {};
+//   const dataValue = Object.keys(data).map((item) => data[item]);
 
-  return dataValue || false;
-};
+//   return dataValue || false;
+// };
 
 module.exports = {
   createUser,
   getUser,
-  getWatchlist,
+  // getWatchlist,
 };
