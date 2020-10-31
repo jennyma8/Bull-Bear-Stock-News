@@ -12,7 +12,7 @@ const Profile = () => {
   // console.log(appUser);
 
   const [watchlist, setWatchlist] = useState([]);
-  const [newWatchlist, setNewWatchlist] = useState([]);
+
   //handle
   //push watchlist array in database
   const addStock = (stock) => {
@@ -58,24 +58,26 @@ const Profile = () => {
     //   });
 
     db.ref("watchlist").on("value", (snapshot) => {
+      console.log(snapshot.val());
+      let data = [];
+
       snapshot.forEach((snap) => {
-        let data = [];
         data.push(snap.val());
         console.log(data);
-        setNewWatchlist(data); //not working
-        console.log(newWatchlist); //empty
       });
+
+      setWatchlist(data);
     });
   }, []);
+  console.log(watchlist);
 
-  return newWatchlist.map((stock, index) => (
+  return (
     <>
       <Wrapper>
         <div>Hi {appUser.displayName}!</div>
         <h1>My profile</h1>
         <div>Email address: {appUser.email}</div>
         <h1 className="watchlist-component">Watchlist: </h1>
-        {/* <div>{stock.text}</div> */}
 
         <WatchlistForm onSubmit={addStock} />
         <Watchlist
@@ -85,7 +87,7 @@ const Profile = () => {
         />
       </Wrapper>
     </>
-  ));
+  );
 };
 
 const Wrapper = styled.div`
