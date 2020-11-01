@@ -34,6 +34,7 @@ const Search = (props) => {
 
   const handleSubmit = (event) => {
     setTicker(tickerInput);
+    setDisplay(false);
   };
   const updateSearchBar = (selection) => {
     setTickerInput(selection);
@@ -46,9 +47,16 @@ const Search = (props) => {
     }
   }, []);
 
+  //
   if (tickerInput.length > 0) {
     newData = newData.filter((stock) => {
-      return stock.name.match(tickerInput) || stock.ticker.match(tickerInput);
+      const lowerStockName = stock.name.toLowerCase();
+      const lowerStockTicker = stock.ticker.toLowerCase();
+
+      return (
+        lowerStockName.match(tickerInput.toLowerCase()) ||
+        lowerStockTicker.match(tickerInput.toLowerCase())
+      );
     });
   }
   return (

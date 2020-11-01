@@ -48,11 +48,14 @@ const WatchlistForm = (props) => {
   };
 
   //   console.log(Data); success
-  //work on case sensitive
-  // .filter(({ name }) => name.indexOf(search.toLowerCase()) > -1)
   if (input.length > 0) {
     newData = newData.filter((stock) => {
-      return stock.name.match(input) || stock.ticker.match(input);
+      const lowerStockName = stock.name.toLowerCase();
+      const lowerStockTicker = stock.ticker.toLowerCase();
+      return (
+        lowerStockName.match(input.toLowerCase()) ||
+        lowerStockTicker.match(input.toLowerCase())
+      );
     });
   }
   return (
