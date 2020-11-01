@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { CircularIndeterminate } from "../assets/CircularSpinner";
 
 const About = () => {
-  return <Wrapper>hello from About</Wrapper>;
+  return (
+    <>
+      <Wrapper></Wrapper>
+    </>
+  );
 };
 
 const Wrapper = styled.div`

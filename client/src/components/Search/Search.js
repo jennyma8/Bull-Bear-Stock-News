@@ -23,6 +23,19 @@ const Search = (props) => {
     }
   };
 
+  //not working
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      setTickerInput(event.target.value);
+      handleSubmit();
+      setDisplay(false);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    setTicker(tickerInput);
+  };
   const updateSearchBar = (selection) => {
     setTickerInput(selection);
     setDisplay(false);
@@ -42,13 +55,14 @@ const Search = (props) => {
   return (
     <>
       <Wrapper>
-        <form>
+        <form onSubmit={handleSubmit}>
           <SearchInput
             placeholder="Search a ticker..."
             onChange={handleChange}
             value={tickerInput}
+            onKeyDown={(ev) => handleKeyPress(ev)}
           ></SearchInput>
-          <Button type="button" onClick={() => setTicker(tickerInput)}>
+          <Button type="button" onClick={handleSubmit}>
             <FiSearch size={25} />
           </Button>
         </form>
