@@ -39,6 +39,14 @@ const WatchlistForm = (props) => {
     setDisplay(false);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      handleSubmit();
+      setDisplay(false);
+    }
+  };
+
   //   console.log(Data); success
   //work on case sensitive
   // .filter(({ name }) => name.indexOf(search.toLowerCase()) > -1)
@@ -60,6 +68,7 @@ const WatchlistForm = (props) => {
               name="text"
               onChange={handleChange}
               ref={inputRef}
+              onKeyDown={(ev) => handleKeyPress(ev)}
             ></input>
             <button onClick={handleSubmit}>Update</button>
           </>
