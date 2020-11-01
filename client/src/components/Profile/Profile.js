@@ -16,7 +16,8 @@ const Profile = () => {
   //handle
   //push watchlist array in database
   const addStock = (stock) => {
-    db.ref(`watchlist`).push(stock);
+    const newPostKey = db.ref(`watchlist`).push(stock).key;
+    console.log(newPostKey);
 
     if (!stock.text || /^\s*$/.test(stock.text)) {
       return;
@@ -36,10 +37,14 @@ const Profile = () => {
     );
   };
 
+  //remove ticker from firebase
   const removeTicker = (id) => {
     const removeArr = [...watchlist].filter((stock) => stock.id !== id);
 
+    //this will remove everything but we don't want that
+
     setWatchlist(removeArr);
+    // db.ref(`watchlist`).update(watchlist);
   };
 
   //fetch watchlist from firebase
@@ -50,7 +55,7 @@ const Profile = () => {
 
       snapshot.forEach((snap) => {
         data.push(snap.val());
-        // console.log(data);
+        console.log(data);
       });
 
       setWatchlist(data);

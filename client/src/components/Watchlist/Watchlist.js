@@ -47,10 +47,10 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
           onClick={() => removeTicker(stock.id)}
           className="delete-icon"
         />
-        <TiEdit
+        {/* <TiEdit
           onClick={() => setEdit({ id: stock.id, value: stock.text })}
           className="edit-icon"
-        />
+        /> */}
       </div>
     </Wrapper>
   ));
