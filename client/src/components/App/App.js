@@ -11,6 +11,7 @@ import Homepage from "../../components/Homepage/Homepage";
 import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
 import About from "../About/About";
+import Error from "../Error/Error";
 
 const App = () => {
   const {
@@ -53,6 +54,9 @@ const App = () => {
 
           <Route exact path="/">
             <Homepage />
+          </Route>
+          <Route path="/*">
+            <Error />
           </Route>
         </Switch>
       </StyledPageWrapper>

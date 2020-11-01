@@ -82,9 +82,12 @@ const WatchlistForm = (props) => {
         <div className="autoContainer">
           {newData.map((stock, index) => {
             return (
-              <div key={index} onClick={() => updateSearchBar(stock.ticker)}>
+              <Display
+                key={index}
+                onClick={() => updateSearchBar(stock.ticker)}
+              >
                 {stock.ticker} - {stock.name}
-              </div>
+              </Display>
             );
           })}
         </div>
@@ -93,14 +96,10 @@ const WatchlistForm = (props) => {
   );
 };
 
-//example from .json:
-// country: "USA"
-// exchange: "NYSE"
-// has_news: "yes"
-// industry: "Medical Laboratories Research"
-// ipo_date: "1999-11-18"
-// name: "Agilent Technologies, Inc."
-// sector: "Healthcare"
-// ticker: "A"
+const Display = styled.div`
+  width: 400px;
+
+  padding: 2px;
+`;
 
 export default WatchlistForm;
