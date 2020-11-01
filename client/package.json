@@ -5,9 +5,6 @@
   "proxy": "http://localhost:8000",
   "homepage": "https://journeyedu-queue.herokuapp.com/",
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.45",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -19,8 +16,6 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
-    "react-native": "^0.63.3",
-    "react-native-paper": "^4.2.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
@@ -31,8 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "nc": "new-component"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
