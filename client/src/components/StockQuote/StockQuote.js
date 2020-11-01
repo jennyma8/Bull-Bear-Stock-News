@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { useParams } from "react-router";
 import { AppContext } from "../AppContext/AppContext";
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;

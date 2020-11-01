@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Avatar from "../Avatar/Avatar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AppContext } from "../../components/AppContext/AppContext";
 import StockPage from "../../components/StockPage/StockPage";
-import Search from "../../components/Search/Search";
 import Nav from "../../components/Nav/Nav";
-
 import Homepage from "../../components/Homepage/Homepage";
 import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
@@ -14,14 +12,7 @@ import About from "../About/About";
 import Error from "../Error/Error";
 
 const App = () => {
-  const {
-    appUser,
-    signInWithGoogle,
-    handleSignOut,
-
-    ticker,
-    setTicker,
-  } = useContext(AppContext);
+  const { appUser, signInWithGoogle, handleSignOut } = useContext(AppContext);
 
   return (
     <Router>
