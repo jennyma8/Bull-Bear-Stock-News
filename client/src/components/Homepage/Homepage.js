@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import Spinner from "../assets/CircularSpinner";
 import FX from "../FX/FX";
 
 require("dotenv").config();
@@ -35,7 +35,7 @@ const Homepage = () => {
   }, []);
 
   if (!data) {
-    return <h1>loading</h1>;
+    return <Spinner />;
   }
 
   //format: array of object

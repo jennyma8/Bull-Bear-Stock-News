@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { AppContext } from "../AppContext/AppContext";
 import { FcCurrencyExchange } from "react-icons/fc";
+import Spinner from "../assets/CircularSpinner";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -35,7 +35,7 @@ const FX = () => {
   }, []);
 
   if (!data) {
-    return <h1>loading</h1>;
+    return <Spinner />;
   }
 
   //format: array of object

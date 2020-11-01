@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-
+import Spinner from "../assets/CircularSpinner";
 import { AppContext } from "../AppContext/AppContext";
+
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
 
@@ -40,7 +41,7 @@ const StockNews = () => {
     if (ticker === "") {
       return <></>;
     } else {
-      return <h1>loading</h1>;
+      return <Spinner />;
     }
   }
 

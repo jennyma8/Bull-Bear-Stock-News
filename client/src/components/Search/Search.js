@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
@@ -23,7 +23,6 @@ const Search = (props) => {
     }
   };
 
-  //not working
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();

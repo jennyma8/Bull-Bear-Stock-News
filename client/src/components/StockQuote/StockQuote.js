@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
+import Spinner from "../assets/CircularSpinner";
+
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
@@ -40,7 +42,7 @@ const StockQuote = () => {
     if (ticker === "") {
       return <div></div>;
     } else {
-      return <h1>loading</h1>;
+      return <Spinner />;
     }
   }
 
