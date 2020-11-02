@@ -37,7 +37,9 @@ const FX = () => {
   if (!data) {
     return <Spinner />;
   }
-
+  if (Object.keys(data) == "Error Message" || Object.keys(data) == "Note") {
+    return <></>;
+  }
   //format: array of object
   return (
     <>

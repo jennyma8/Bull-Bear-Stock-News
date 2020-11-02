@@ -45,7 +45,7 @@ const Search = (props) => {
     if (id !== undefined) {
       setTicker(id);
     }
-  }, []);
+  }, [id]);
 
   //
   if (tickerInput.length > 0) {

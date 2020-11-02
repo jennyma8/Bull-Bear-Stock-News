@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import Spinner from "../assets/CircularSpinner";
-import Error from "../Error/Error";
+import { useParams } from "react-router-dom";
 
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
@@ -31,36 +31,35 @@ const StockQuote = () => {
           // Examine the text in the response
           response.json().then(function (data) {
             console.log(data);
-            console.log(Object.keys(data));
+            // console.log(Object.keys(data));
 
             setdata(data);
           });
         })
         .catch(function (err) {
           console.log("Fetch Error :-S", err);
-          return <Error />;
         });
     }
   }, [ticker]);
 
   if (!data) {
     if (ticker === "") {
-      return <div></div>;
+      return <></>;
     } else {
       return <Spinner />;
     }
   }
 
   //when the ticker doesn't exist or API call exceeded
-  if (Object.keys(data) == "Error Message") {
-    return (
-      <h1>
-        Sorry, no result found. Please retry another ticker or retry in 1
-        minute.
-      </h1>
-    );
-  }
-  //format: object of object
+  // if (Object.keys(data) == "Error Message" || Object.keys(data) == "Note") {
+  //   return (
+  //     <h1>
+  //       Sorry, no result found. Please retry another ticker or retry in 1
+  //       minute.
+  //     </h1>
+  //   );
+  // }
+  // format: object of object
 
   return (
     <>
@@ -83,9 +82,6 @@ const StockQuote = () => {
   return <div>{date}<div>Last price: {stockPrice["4. close"]}</div>;
 })}
 </div> */
-
-// company overview
-// https://www.alphavantage.co/query?function=OVERVIEW&symbol=IBM&apikey=demo
 
 const Wrapper = styled.div`
   background-color: white;
