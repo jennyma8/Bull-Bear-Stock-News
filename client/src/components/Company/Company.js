@@ -43,6 +43,9 @@ const Company = () => {
     }
   }
 
+  // if (data == "") {
+  //   return <></>;
+  // }
   //format: object of object
   return (
     <>

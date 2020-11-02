@@ -53,7 +53,7 @@ const StockWrapper = styled.div`
 const QuoteWrapper = styled.div`
   margin: 50px;
   border: 1px solid black;
-  background: red;
+  background: white;
   height: 100%;
 
   @media (max-width: 1200px) {
