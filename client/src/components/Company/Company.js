@@ -9,6 +9,7 @@ const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 const Company = () => {
   const [data, setdata] = React.useState();
   const { ticker } = useContext(AppContext);
+  const { quoteData, setQuoteData } = useContext(AppContext);
 
   React.useEffect(() => {
     if (ticker !== "") {
@@ -27,6 +28,31 @@ const Company = () => {
           response.json().then(function (data) {
             console.log(data);
             setdata(data);
+
+            fetch(
+              `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
+            )
+              .then(function (response) {
+                // console.log(response);
+                if (response.status !== 200) {
+                  console.log(
+                    "Looks like there was a problem. Status Code: " +
+                      response.status
+                  );
+                  return;
+                }
+
+                // Examine the text in the response
+                response.json().then(function (data) {
+                  console.log(data);
+                  // console.log(Object.keys(data));
+
+                  setQuoteData(data);
+                });
+              })
+              .catch(function (err) {
+                console.log("Fetch Error :-S", err);
+              });
           });
         })
         .catch(function (err) {
