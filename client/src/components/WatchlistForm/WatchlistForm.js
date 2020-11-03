@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import styled from "styled-components";
 import Data from "../assets/allTickers.json";
+import { AppContext } from "../../components/AppContext/AppContext";
 
 const WatchlistForm = (props) => {
+  const { appUser } = useContext(AppContext);
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
   const [display, setDisplay] = useState(false);
 
@@ -29,6 +31,7 @@ const WatchlistForm = (props) => {
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,
+      email: appUser.email,
     });
 
     setInput("");

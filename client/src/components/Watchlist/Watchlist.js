@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../components/AppContext/AppContext";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
@@ -8,17 +9,21 @@ import { TiEdit } from "react-icons/ti";
 const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
   let history = useHistory();
 
+  const { appUser } = useContext(AppContext);
+
   const [edit, setEdit] = useState({
     id: null,
     value: "",
+    email: "",
   });
 
   //handle
   const submitUpdate = (value) => {
-    updateTicker(edit.id, value);
+    updateTicker(edit.id, value, edit.email);
     setEdit({
       id: null,
       value: "",
+      email: "",
     });
   };
   const handleHistory = (text) => {

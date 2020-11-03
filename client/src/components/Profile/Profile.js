@@ -9,14 +9,25 @@ const db = firebase.database();
 
 const Profile = () => {
   const { appUser } = useContext(AppContext);
-  // console.log(appUser);
+  console.log(appUser.email);
+  const email = appUser.email;
 
   const [watchlist, setWatchlist] = useState([]);
 
   //handle
+  //firebase
+  // function writeUserData(userId, name, email, imageUrl) {
+  //   db.ref("users/" + userId).set({
+  //     username: name,
+  //     email: email,
+  //     profile_picture: imageUrl,
+  //   });
+  // }
+  // writeUserData();
+
   //push watchlist array in database
   const addStock = (stock) => {
-    const newPostKey = db.ref(`watchlist`).push({ stock }).key;
+    const newPostKey = db.ref(`watchlist`).push(stock).key;
     // console.log(newPostKey);
 
     if (!stock.text || /^\s*$/.test(stock.text)) {
@@ -40,7 +51,7 @@ const Profile = () => {
   //remove ticker from firebase
   const removeTicker = (id) => {
     const removeArr = [...watchlist].filter((stock) => stock.id !== id);
-
+    console.log(removeArr);
     setWatchlist(removeArr);
     db.ref(`watchlist`).set(removeArr);
   };
@@ -48,7 +59,7 @@ const Profile = () => {
   //fetch watchlist from firebase
   useEffect(() => {
     db.ref("watchlist").on("value", (snapshot) => {
-      // console.log(snapshot.val());
+      console.log(snapshot.val());
       let data = [];
 
       snapshot.forEach((snap) => {
