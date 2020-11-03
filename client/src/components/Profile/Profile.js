@@ -15,10 +15,8 @@ const Profile = () => {
 
   //handle
   //push watchlist array in database
-  const addStock = (stock, appUser) => {
-    const newPostKey = db
-      .ref(`watchlist`)
-      .push({ stock: stock, email: "jenny" }).key;
+  const addStock = (stock) => {
+    const newPostKey = db.ref(`watchlist`).push({ stock }).key;
     // console.log(newPostKey);
 
     if (!stock.text || /^\s*$/.test(stock.text)) {
@@ -42,8 +40,6 @@ const Profile = () => {
   //remove ticker from firebase
   const removeTicker = (id) => {
     const removeArr = [...watchlist].filter((stock) => stock.id !== id);
-
-    //this will remove everything but we don't want that
 
     setWatchlist(removeArr);
     db.ref(`watchlist`).set(removeArr);
