@@ -6,12 +6,12 @@ import { FiSearch } from "react-icons/fi";
 import Data from "../assets/allTickers.json";
 
 const Search = (props) => {
-  const [data, setdata] = React.useState();
-  const [tickerInput, setTickerInput] = React.useState("");
   const { ticker, setTicker } = useContext(AppContext);
+
+  const [tickerInput, setTickerInput] = React.useState("");
   const [display, setDisplay] = useState(false);
   // const [ quoteData, setQuoteData ] = useContext(AppContext);
-
+  // const [data, setdata] = React.useState();
   const { id } = useParams();
   // console.log(id);
 
@@ -34,7 +34,9 @@ const Search = (props) => {
   // };
 
   const handleSubmit = (event) => {
+    // event.preventDefault();
     setTicker(tickerInput);
+    console.log(ticker);
     setDisplay(false);
   };
   const updateSearchBar = (selection) => {

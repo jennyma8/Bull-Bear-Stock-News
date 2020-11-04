@@ -27,7 +27,6 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
   const [message, setMessage] = useState("");
   const [ticker, setTicker] = useState("");
-  const [quoteData, setQuoteData] = useState();
 
   const handleSignOut = () => {
     signOut();
@@ -71,8 +70,6 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         message,
         ticker,
         setTicker,
-        quoteData,
-        setQuoteData,
       }}
     >
       {children}

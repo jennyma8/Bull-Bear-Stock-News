@@ -10,30 +10,10 @@ const Company = () => {
   const { ticker } = useContext(AppContext);
 
   const [companyData, setCompanyData] = React.useState();
-  const { quoteData, setQuoteData } = useContext(AppContext);
+  const [quoteData, setQuoteData] = React.useState();
 
   React.useEffect(() => {
     if (ticker !== "") {
-      fetch(
-        `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${apiKeyAlpha}`
-      )
-        .then(function (response) {
-          if (response.status !== 200) {
-            console.log(
-              "Looks like there was a problem. Status Code: " + response.status
-            );
-            return;
-          }
-
-          // Examine the text in the response
-          response.json().then(function (data) {
-            console.log(data);
-            setCompanyData(data);
-          });
-        })
-        .catch(function (err) {
-          console.log("Fetch Error :-S", err);
-        });
       fetch(
         `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
       )
@@ -52,6 +32,27 @@ const Company = () => {
             // console.log(Object.keys(data));
 
             setQuoteData(data);
+            fetch(
+              `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${ticker}&apikey=${apiKeyAlpha}`
+            )
+              .then(function (response) {
+                if (response.status !== 200) {
+                  console.log(
+                    "Looks like there was a problem. Status Code: " +
+                      response.status
+                  );
+                  return;
+                }
+
+                // Examine the text in the response
+                response.json().then(function (data) {
+                  console.log(data);
+                  setCompanyData(data);
+                });
+              })
+              .catch(function (err) {
+                console.log("Fetch Error :-S", err);
+              });
           });
         })
         .catch(function (err) {
@@ -60,7 +61,7 @@ const Company = () => {
     }
   }, [ticker]);
 
-  if (!companyData) {
+  if (!companyData || !quoteData) {
     if (ticker === "") {
       return <></>;
     } else {
@@ -72,13 +73,6 @@ const Company = () => {
   //   return <></>;
   // }
   //format: object of object
-  if (!quoteData) {
-    if (ticker === "") {
-      return <></>;
-    } else {
-      return <Spinner />;
-    }
-  }
 
   if (
     Object.keys(quoteData) == "Error Message" ||

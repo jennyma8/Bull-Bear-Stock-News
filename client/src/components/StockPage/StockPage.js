@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import StockQuote from "../../components/StockQuote/StockQuote";
+import { AppContext } from "../AppContext/AppContext";
 import StockNews from "../StockNews/StockNews";
 import Search from "../../components/Search/Search";
 import Company from "../Company/Company";
 
 const StockPage = () => {
+  const { ticker, setTicker } = useContext(AppContext);
+
+  React.useEffect(() => {
+    return () => {
+      setTicker("");
+    };
+  }, []);
   return (
     <>
       <Wrapper>
@@ -13,7 +20,6 @@ const StockPage = () => {
 
         <StockWrapper>
           <QuoteWrapper>
-            <StockQuote />
             <Company />
           </QuoteWrapper>
           <StockNews />
