@@ -10,6 +10,7 @@ const Search = (props) => {
   const [tickerInput, setTickerInput] = React.useState("");
   const { ticker, setTicker } = useContext(AppContext);
   const [display, setDisplay] = useState(false);
+  // const [ quoteData, setQuoteData ] = useContext(AppContext);
 
   const { id } = useParams();
   // console.log(id);
@@ -23,14 +24,14 @@ const Search = (props) => {
     }
   };
 
-  const handleKeyPress = (event) => {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      setTickerInput(event.target.value);
-      handleSubmit();
-      setDisplay(false);
-    }
-  };
+  // const handleKeyPress = (event) => {
+  //   if (event.keyCode === 13) {
+  //     event.preventDefault();
+  //     setTickerInput(event.target.value);
+  //     handleSubmit();
+  //     setDisplay(false);
+  //   }
+  // };
 
   const handleSubmit = (event) => {
     setTicker(tickerInput);
@@ -62,12 +63,12 @@ const Search = (props) => {
   return (
     <>
       <Wrapper>
-        <form onSubmit={handleSubmit}>
+        <form>
           <SearchInput
             placeholder="Search a ticker..."
             onChange={handleChange}
             value={tickerInput}
-            onKeyDown={(ev) => handleKeyPress(ev)}
+            // onKeyDown={(ev) => handleKeyPress(ev)}
           ></SearchInput>
           <Button type="button" onClick={handleSubmit}>
             <FiSearch size={25} />

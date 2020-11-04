@@ -9,7 +9,7 @@ const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const StockQuote = () => {
   // const [data, setdata] = React.useState();
-  const { ticker } = useContext(AppContext);
+  // const { ticker } = useContext(AppContext);
   const { quoteData, setQuoteData } = useContext(AppContext);
 
   // React.useEffect(() => {
@@ -44,31 +44,31 @@ const StockQuote = () => {
   // }
   // }, [ticker]);
 
-  if (!quoteData) {
-    if (ticker === "") {
-      return <></>;
-    } else {
-      return <Spinner />;
-    }
-  }
+  // if (!quoteData) {
+  //   if (ticker === "") {
+  //     return <></>;
+  //   } else {
+  //     return <Spinner />;
+  //   }
+  // }
 
   //when the ticker doesn't exist or API call exceeded
-  if (
-    Object.keys(quoteData) == "Error Message" ||
-    Object.keys(quoteData) == "Note"
-  ) {
-    return (
-      <h1>
-        Sorry, no result found. Please retry another ticker or retry in 1
-        minute.
-      </h1>
-    );
-  }
+  // if (
+  //   Object.keys(quoteData) == "Error Message" ||
+  //   Object.keys(quoteData) == "Note"
+  // ) {
+  //   return (
+  //     <h1>
+  //       Sorry, no result found. Please retry another ticker or retry in 1
+  //       minute.
+  //     </h1>
+  //   );
+  // }
   // format: object of object
 
   return (
     <>
-      <Wrapper>
+      {/* <Wrapper>
         <div>Symbol: {quoteData["Meta Data"]["2. Symbol"]}</div>
         <div>
           Last Price:{" "}
@@ -77,7 +77,7 @@ const StockQuote = () => {
         <div>
           Last Update: {Object.entries(quoteData["Time Series (1min)"])[0][0]}
         </div>
-      </Wrapper>
+      </Wrapper> */}
     </>
   );
 };

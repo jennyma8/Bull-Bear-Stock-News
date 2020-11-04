@@ -7,8 +7,9 @@ require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
 
 const Company = () => {
-  const [data, setdata] = React.useState();
   const { ticker } = useContext(AppContext);
+
+  const [companyData, setCompanyData] = React.useState();
   const { quoteData, setQuoteData } = useContext(AppContext);
 
   React.useEffect(() => {
@@ -27,32 +28,30 @@ const Company = () => {
           // Examine the text in the response
           response.json().then(function (data) {
             console.log(data);
-            setdata(data);
+            setCompanyData(data);
+          });
+        })
+        .catch(function (err) {
+          console.log("Fetch Error :-S", err);
+        });
+      fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
+      )
+        .then(function (response) {
+          // console.log(response);
+          if (response.status !== 200) {
+            console.log(
+              "Looks like there was a problem. Status Code: " + response.status
+            );
+            return;
+          }
 
-            fetch(
-              `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=1min&apikey=${apiKeyAlpha}`
-            )
-              .then(function (response) {
-                // console.log(response);
-                if (response.status !== 200) {
-                  console.log(
-                    "Looks like there was a problem. Status Code: " +
-                      response.status
-                  );
-                  return;
-                }
+          // Examine the text in the response
+          response.json().then(function (data) {
+            console.log(data); //there's a bug here that keeps changing
+            // console.log(Object.keys(data));
 
-                // Examine the text in the response
-                response.json().then(function (data) {
-                  console.log(data);
-                  // console.log(Object.keys(data));
-
-                  setQuoteData(data);
-                });
-              })
-              .catch(function (err) {
-                console.log("Fetch Error :-S", err);
-              });
+            setQuoteData(data);
           });
         })
         .catch(function (err) {
@@ -61,7 +60,7 @@ const Company = () => {
     }
   }, [ticker]);
 
-  if (!data) {
+  if (!companyData) {
     if (ticker === "") {
       return <></>;
     } else {
@@ -73,19 +72,49 @@ const Company = () => {
   //   return <></>;
   // }
   //format: object of object
+  if (!quoteData) {
+    if (ticker === "") {
+      return <></>;
+    } else {
+      return <Spinner />;
+    }
+  }
+
+  if (
+    Object.keys(quoteData) == "Error Message" ||
+    Object.keys(quoteData) == "Note"
+  ) {
+    return (
+      <h1>
+        Sorry, no result found. Please retry another ticker or retry in 1
+        minute.
+      </h1>
+    );
+  }
+
   return (
     <>
-      <Wrapper>
-        <div>Company Name: {data.Name}</div>
+      <WrapperQuote>
+        <div>Symbol: {quoteData["Meta Data"]["2. Symbol"]}</div>
+        <div>
+          Last Price:{" "}
+          {Object.entries(quoteData["Time Series (1min)"])[0][1]["4. close"]}
+        </div>
+        <div>
+          Last Update: {Object.entries(quoteData["Time Series (1min)"])[0][0]}
+        </div>
+      </WrapperQuote>
+      <WrapperCompany>
+        <div>Company Name: {companyData.Name}</div>
         <Desc>
-          <strong>Description:</strong> {data.Description}
+          <strong>Description:</strong> {companyData.Description}
         </Desc>
-        <div>Exchange: {data.Exchange}</div>
-        <div>Country: {data.Country}</div>
-        <div>Sector: {data.Sector}</div>
-        <div>Industry: {data.Industry}</div>
-        <div>Address: {data.Address}</div>
-      </Wrapper>
+        <div>Exchange: {companyData.Exchange}</div>
+        <div>Country: {companyData.Country}</div>
+        <div>Sector: {companyData.Sector}</div>
+        <div>Industry: {companyData.Industry}</div>
+        <div>Address: {companyData.Address}</div>
+      </WrapperCompany>
     </>
   );
 };
@@ -95,8 +124,12 @@ const Company = () => {
   return <div>{date}<div>Last price: {stockPrice["4. close"]}</div>;
 })}
 </div> */
+const WrapperQuote = styled.div`
+  background-color: white;
+  font-size: 30px;
+`;
 
-const Wrapper = styled.div`
+const WrapperCompany = styled.div`
   margin-top: 20px;
   background-color: lightgrey;
 `;
