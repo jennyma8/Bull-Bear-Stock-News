@@ -10,9 +10,8 @@ const db = firebase.database();
 const Profile = () => {
   const { appUser } = useContext(AppContext);
   console.log(appUser.email);
-  const email = appUser.email;
 
-  const [watchlist, setWatchlist] = useState([]);
+  const { watchlist, setWatchlist } = useContext(AppContext);
 
   //handle
   //firebase
@@ -57,19 +56,24 @@ const Profile = () => {
   };
 
   //fetch watchlist from firebase
+
   useEffect(() => {
-    db.ref("watchlist").on("value", (snapshot) => {
-      console.log(snapshot.val());
-      let data = [];
+    if (appUser.email) {
+      db.ref("watchlist").on("value", (snapshot) => {
+        console.log(snapshot.val());
+        let data = [];
 
-      snapshot.forEach((snap) => {
-        data.push(snap.val());
-        console.log(data);
+        snapshot.forEach((snap) => {
+          data.push(snap.val());
+          console.log(data);
+        });
+
+        setWatchlist(data);
       });
+      console.log(appUser);
+    }
+  }, [appUser]);
 
-      setWatchlist(data);
-    });
-  }, []);
   // console.log(watchlist);
 
   return (
@@ -81,11 +85,7 @@ const Profile = () => {
         <h1 className="watchlist-component">Watchlist: </h1>
 
         <WatchlistForm onSubmit={addStock} />
-        <Watchlist
-          watchlist={watchlist}
-          removeTicker={removeTicker}
-          updateTicker={updateTicker}
-        />
+        <Watchlist removeTicker={removeTicker} updateTicker={updateTicker} />
       </Wrapper>
     </>
   );

@@ -28,6 +28,7 @@ const WatchlistForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    //values pushed to firebase
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,

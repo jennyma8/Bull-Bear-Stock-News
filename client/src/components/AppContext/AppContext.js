@@ -27,13 +27,13 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});
   const [message, setMessage] = useState("");
   const [ticker, setTicker] = useState("");
+  const [watchlist, setWatchlist] = useState([]);
 
   const handleSignOut = () => {
     signOut();
     setAppUser({});
+    setWatchlist([]);
   };
-
-  //
 
   useEffect(() => {
     if (user) {
@@ -70,6 +70,8 @@ const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
         message,
         ticker,
         setTicker,
+        watchlist,
+        setWatchlist,
       }}
     >
       {children}

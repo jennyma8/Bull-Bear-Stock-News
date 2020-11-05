@@ -4,12 +4,29 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { TiEdit } from "react-icons/ti";
+// import { TiEdit } from "react-icons/ti";
 
-const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
+const Watchlist = ({ removeTicker, updateTicker }) => {
   let history = useHistory();
 
   const { appUser } = useContext(AppContext);
+  const { watchlist, setWatchlist } = useContext(AppContext);
+
+  // const appUserEmail = appUser.email;
+  // console.log(appUserEmail);
+
+  // let logWatchlist = watchlist.map((stock) => {
+  //   let list = {
+  //     email: stock.email,
+  //     text: stock.text,
+  //   };
+  //   if (stock.email === appUser.Email) {
+  //     list["text"] = stock.text;
+  //   }
+
+  //   return list;
+  // });
+  // console.log(logWatchlist);
 
   const [edit, setEdit] = useState({
     id: null,
@@ -52,6 +69,7 @@ const Watchlist = ({ watchlist, removeTicker, updateTicker }) => {
           onClick={() => removeTicker(stock.id)}
           className="delete-icon"
         />
+        {/* added an edit button but found it useless in the end so I uncomment it for now*/}
         {/* <TiEdit
           onClick={() => setEdit({ id: stock.id, value: stock.text })}
           className="edit-icon"

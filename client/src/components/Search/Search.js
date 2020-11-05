@@ -10,8 +10,7 @@ const Search = (props) => {
 
   const [tickerInput, setTickerInput] = React.useState("");
   const [display, setDisplay] = useState(false);
-  // const [ quoteData, setQuoteData ] = useContext(AppContext);
-  // const [data, setdata] = React.useState();
+
   const { id } = useParams();
   // console.log(id);
 

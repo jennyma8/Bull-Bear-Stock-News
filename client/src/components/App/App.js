@@ -14,6 +14,10 @@ import Error from "../Error/Error";
 const App = () => {
   const { appUser, signInWithGoogle, handleSignOut } = useContext(AppContext);
 
+  const watchlistSignIn = () => {
+    signInWithGoogle();
+  };
+
   return (
     <Router>
       <StyledPageWrapper>
@@ -25,7 +29,7 @@ const App = () => {
               <button onClick={handleSignOut}>Sign Out</button>
             </StyledUserContainer>
           ) : (
-            <button onClick={signInWithGoogle}>Sign In</button>
+            <button onClick={watchlistSignIn}>Sign In</button>
           )}
         </StyledHeader>
 

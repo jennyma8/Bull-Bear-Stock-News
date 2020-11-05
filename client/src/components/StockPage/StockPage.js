@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import StockNews from "../StockNews/StockNews";
