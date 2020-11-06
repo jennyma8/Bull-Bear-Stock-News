@@ -36,7 +36,8 @@ const App = () => {
             <div className="App">
               <nav>
                 <button onClick={() => handleClick("en")}>English</button>
-                <button onClick={() => handleClick("chi")}>Chinese</button>
+                <button onClick={() => handleClick("fr")}>Français</button>
+                <button onClick={() => handleClick("chi")}>中文</button>
               </nav>
               <header className="App-header">
                 <p>
