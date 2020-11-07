@@ -2,12 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import Spinner from "../assets/CircularSpinner";
 import FX from "../FX/FX";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
 
 const Homepage = () => {
   const [data, setdata] = React.useState();
+
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     //global news
@@ -44,7 +48,7 @@ const Homepage = () => {
       <Wrapper>
         <FX />
         <NewsWrapper>
-          <h1>Global Market News</h1>
+          <h1>{t("GlobalMarketNews.1")}</h1>
           {Object.values(data["data"]).map((news, index) => {
             return (
               <NewsContainer key={index}>
@@ -52,10 +56,14 @@ const Homepage = () => {
                 <div>{news.date}</div>
                 <img src={news.image_url} alt="news"></img>
 
-                <div>Source: {news.source_name}</div>
+                <div>
+                  {t("Source.1")}: {news.source_name}
+                </div>
 
-                <div>Summary: {news.text}</div>
-                <a href={news.news_url}>Read more...</a>
+                <div>
+                  {t("Summary.1")}: {news.text}
+                </div>
+                <a href={news.news_url}>{t("ReadMore.1")}...</a>
               </NewsContainer>
             );
           })}

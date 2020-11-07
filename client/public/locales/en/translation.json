@@ -1,8 +1,47 @@
 {
-  "Thanks": {
-    "1": "Thank you"
+  "Home": {
+    "1": "Home"
   },
-  "Why": {
-    "1": "For watching this video"
+  "Stocks": {
+    "1": "Stocks"
+  },
+  "Profile": {
+    "1": "Profile"
+  },
+  "About": {
+    "1": "About"
+  },
+  "SignOut": {
+    "1": "Sign Out"
+  },
+  "SignIn": {
+    "1": "Sign In"
+  },
+  "GlobalMarketNews": {
+    "1": "Global Market News"
+  },
+  "Source": {
+    "1": "Source"
+  },
+  "Summary": {
+    "1": "Summary"
+  },
+  "ReadMore": {
+    "1": "Read more"
+  },
+  "Exchange": {
+    "1": "Foreign Exchange"
+  },
+  "FromFX": {
+    "1": "From"
+  },
+  "ToFX": {
+    "1": "To"
+  },
+  "Conversion": {
+    "1": "Conversion"
+  },
+  "Search": {
+    "1": "Search..."
   }
 }

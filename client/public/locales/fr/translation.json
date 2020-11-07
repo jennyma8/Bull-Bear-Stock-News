@@ -1,8 +1,47 @@
 {
-  "Thanks": {
-    "1": "Merci"
+  "Home": {
+    "1": "Page d'accueil"
   },
-  "Why": {
-    "1": "de visiter mon site web"
+  "Stocks": {
+    "1": "Actions"
+  },
+  "Profile": {
+    "1": "Profil"
+  },
+  "About": {
+    "1": "À propos de nous"
+  },
+  "SignOut": {
+    "1": "Se déconnecter"
+  },
+  "SignIn": {
+    "1": "Se connecter"
+  },
+  "GlobalMarketNews": {
+    "1": "L'Actualité Internationale des Marchés Financiers"
+  },
+  "Source": {
+    "1": "Source"
+  },
+  "Summary": {
+    "1": "Sommaire"
+  },
+  "ReadMore": {
+    "1": "Lire la suite"
+  },
+  "Exchange": {
+    "1": "Devise étrangère"
+  },
+  "FromFX": {
+    "1": "De"
+  },
+  "ToFX": {
+    "1": "À"
+  },
+  "Conversion": {
+    "1": "Taux de change"
+  },
+  "Search": {
+    "1": "Rechercher un symbole boursier"
   }
 }

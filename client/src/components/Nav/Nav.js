@@ -1,9 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import Logo from "../assets/LogoBBv2.jpg";
 
 const Nav = () => {
+  const { t } = useTranslation();
+
+  // const changeLanguage = (lang) => {
+  //   i18next.changeLanguage(lang);
+  // };
+
   return (
     <>
       <Wrapper>
@@ -14,10 +22,10 @@ const Nav = () => {
           <Title>Bull and Bear Stock Market News</Title>
         </TitleContainer>
         <Bar>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/stocks">Stocks</StyledLink>
-          <StyledLink to="/profile">Profile</StyledLink>
-          <StyledLink to="/about">About</StyledLink>
+          <StyledLink to="/">{t("Home.1")}</StyledLink>
+          <StyledLink to="/stocks">{t("Stocks.1")}</StyledLink>
+          <StyledLink to="/profile">{t("Profile.1")}</StyledLink>
+          <StyledLink to="/about">{t("About.1")}</StyledLink>
         </Bar>
       </Wrapper>
     </>

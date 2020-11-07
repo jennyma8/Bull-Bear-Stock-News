@@ -39,19 +39,14 @@ const App = () => {
                 <button onClick={() => handleClick("fr")}>Français</button>
                 <button onClick={() => handleClick("chi")}>中文</button>
               </nav>
-              <header className="App-header">
-                <p>
-                  <h3>{t("Thanks.1")}</h3> <h3>{t("Why.1")}</h3>
-                </p>
-              </header>
             </div>
             {appUser && appUser.email ? (
               <StyledUserContainer>
                 <Avatar src={appUser.photoURL} />
-                <button onClick={handleSignOut}>Sign Out</button>
+                <button onClick={handleSignOut}>{t("SignOut.1")}</button>
               </StyledUserContainer>
             ) : (
-              <button onClick={watchlistSignIn}>Sign In</button>
+              <button onClick={watchlistSignIn}>{t("SignIn.1")}</button>
             )}
           </StyledHeader>
 

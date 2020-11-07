@@ -2,12 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { FcCurrencyExchange } from "react-icons/fc";
 import Spinner from "../assets/CircularSpinner";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
 
 const FX = () => {
   const [data, setdata] = React.useState();
+
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     //FX
@@ -45,13 +49,17 @@ const FX = () => {
     <>
       <Wrapper>
         <h1>
-          Exchange Rate
+          {t("Exchange.1")}
           <FcCurrencyExchange />
         </h1>
-        <div>From:{data["Meta Data"]["2. From Symbol"]}</div>
-        <div>To:{data["Meta Data"]["3. To Symbol"]}</div>
         <div>
-          Conversion:
+          {t("FromFX.1")}:{data["Meta Data"]["2. From Symbol"]}
+        </div>
+        <div>
+          {t("ToFX.1")}:{data["Meta Data"]["3. To Symbol"]}
+        </div>
+        <div>
+          {t("Conversion.1")}:
           <strong>
             {Object.entries(data["Time Series FX (1min)"])[0][1]["4. close"]}
           </strong>
@@ -64,5 +72,9 @@ const FX = () => {
 const Wrapper = styled.div`
   margin-top: 100px;
   border-right: 1px solid lightgrey;
+
+  div {
+    padding: 5px;
+  }
 `;
 export default FX;
