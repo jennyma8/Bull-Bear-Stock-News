@@ -19,7 +19,7 @@ const Nav = () => {
           <LogoSrc exact to="/">
             <img src={Logo} alt="Logo" style={{ height: 50, width: 50 }} />
           </LogoSrc>
-          <Title>Bull and Bear Stock Market News</Title>
+          <Title>{t("Title.1")}</Title>
         </TitleContainer>
         <Bar>
           <StyledLink to="/">{t("Home.1")}</StyledLink>
