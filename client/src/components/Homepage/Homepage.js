@@ -4,7 +4,6 @@ import Spinner from "../assets/CircularSpinner";
 import FX from "../FX/FX";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import moment from "moment";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -54,7 +53,7 @@ const Homepage = () => {
             return (
               <NewsContainer key={index}>
                 <Title key={index}>{news.title}</Title>
-                <div>{moment(news.date).format("dddd")}</div>
+                <div>{news.date}</div>
                 <img src={news.image_url} alt="news"></img>
 
                 <div>
