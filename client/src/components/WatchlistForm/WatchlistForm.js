@@ -10,6 +10,7 @@ const WatchlistForm = (props) => {
 
   const { appUser } = useContext(AppContext);
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
+  const [stockName, setStockName] = useState("");
   const [display, setDisplay] = useState(false);
 
   const inputRef = useRef(null);
@@ -37,24 +38,27 @@ const WatchlistForm = (props) => {
         id: Math.floor(Math.random() * 10000),
         text: input,
         email: appUser.email,
+        company: stockName,
       });
 
       setInput("");
     }
   };
 
-  const updateSearchBar = (selection) => {
-    setInput(selection);
+  const updateSearchBar = (stockTicker, stockName) => {
+    setInput(stockTicker);
+    setStockName(stockName);
+    console.log(stockName);
     setDisplay(false);
   };
 
-  const handleKeyPress = (event) => {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      handleSubmit();
-      setDisplay(false);
-    }
-  };
+  // const handleKeyPress = (event) => {
+  //   if (event.keyCode === 13) {
+  //     event.preventDefault();
+  //     handleSubmit();
+  //     setDisplay(false);
+  //   }
+  // };
 
   //   console.log(Data); success
   if (input.length > 0) {
@@ -84,10 +88,11 @@ const WatchlistForm = (props) => {
       {display && (
         <div className="autoContainer">
           {newData.map((stock, index) => {
+            // console.log(stock);
             return (
               <Display
                 key={index}
-                onClick={() => updateSearchBar(stock.ticker)}
+                onClick={() => updateSearchBar(stock.ticker, stock.name)}
               >
                 {stock.ticker} - {stock.name}
               </Display>

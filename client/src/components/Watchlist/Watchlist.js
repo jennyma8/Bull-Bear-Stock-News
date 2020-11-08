@@ -16,6 +16,7 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
 
   const { appUser } = useContext(AppContext);
   const { watchlist, setWatchlist } = useContext(AppContext);
+  console.log(watchlist);
 
   // const appUserEmail = appUser.email;
   // console.log(appUserEmail);
@@ -37,6 +38,7 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
     id: null,
     value: "",
     email: "",
+    company: "",
   });
 
   //handle
@@ -46,6 +48,7 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
       id: null,
       value: "",
       email: "",
+      company: "",
     });
   };
   const handleHistory = (text) => {
@@ -65,7 +68,9 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
   //autocomplete search bar from all tickers local json file
   return watchlist.map((stock, index) => (
     <Wrapper key={index}>
-      <WatchStock key={stock.id}>{stock.text}</WatchStock>
+      <WatchStock key={stock.id}>
+        {stock.text} - {stock.company}
+      </WatchStock>
       <button type="button" onClick={() => handleHistory(stock.text)}>
         {t("Consult.1")}
       </button>
@@ -91,7 +96,7 @@ const Wrapper = styled.div`
 const WatchStock = styled.div`
   border: 1px solid lightgrey;
   border-radius: 2px;
-  width: 100px;
+  width: 400px;
   padding: 5px;
 `;
 export default Watchlist;

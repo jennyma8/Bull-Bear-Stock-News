@@ -30,6 +30,7 @@ const Profile = () => {
 
   //push watchlist array in database
   const addStock = (stock) => {
+    console.log(stock); //includes stock.company
     const newPostKey = db.ref(`watchlist`).push(stock).key;
     // console.log(newPostKey);
 
@@ -39,7 +40,7 @@ const Profile = () => {
     const newStock = [stock, ...watchlist];
 
     setWatchlist(newStock);
-    // console.log(stock, ...watchlist);
+    console.log(stock, ...watchlist);
   };
 
   const updateTicker = (stockId, newValue) => {
