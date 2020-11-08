@@ -2,11 +2,16 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../components/AppContext/AppContext";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 // import { TiEdit } from "react-icons/ti";
 
 const Watchlist = ({ removeTicker, updateTicker }) => {
+  const { t } = useTranslation();
+
   let history = useHistory();
 
   const { appUser } = useContext(AppContext);
@@ -62,7 +67,7 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
     <Wrapper key={index}>
       <WatchStock key={stock.id}>{stock.text}</WatchStock>
       <button type="button" onClick={() => handleHistory(stock.text)}>
-        Consult Quote and News
+        {t("Consult.1")}
       </button>
       <div className="icons">
         <AiOutlineCloseCircle

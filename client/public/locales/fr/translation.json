@@ -6,7 +6,7 @@
     "1": "Actions"
   },
   "Profile": {
-    "1": "Profil"
+    "1": "Mon Profil"
   },
   "About": {
     "1": "À propos de nous"
@@ -43,5 +43,55 @@
   },
   "Search": {
     "1": "Rechercher un symbole boursier"
-  }
+  },
+  "Sorry": {
+    "1": "Désolé, aucun résultat n'a été trouvé. Veuillez entrer un autre symbole boursier ou ré-essayer dans 1 minute."
+  },
+  "Symbol": {
+    "1": "Symbole boursier"
+  },
+  "LastPrice": {
+    "1": "Dernier cours"
+  },
+  "LastUpdate": {
+    "1": "Dernière mise à jour"
+  },
+  "CompanyName": {
+    "1": "Nom de la compagnie"
+  },
+  "Description": {
+    "1": "Description"
+  },
+  "ExchangePlatform": {
+    "1": "Bourse"
+  },
+  "Country": {
+    "1": "Pays"
+  },
+  "Sector": {
+    "1": "Secteur"
+  },
+  "Industry": {
+    "1": "Industrie"
+  },
+  "Address": {
+    "1": "Adresse"
+  },
+  "Hi": {
+    "1": "Bonjour"
+  },
+  "Email": {
+    "1": "Adresse courriel"
+  },
+  "Watchlist": {
+    "1": "Mes Favoris"
+  },
+  "RecentNews": {
+    "1": "Dernières Nouvelles"
+  },
+  "Consult": {
+    "1": "Consultez le cours de l'action et les nouvelles"
+  },
+  "AddTicker": "Ajouter un symbole boursier",
+  "Add": "Ajouter"
 }

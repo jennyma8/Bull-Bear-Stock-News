@@ -3,11 +3,15 @@ import styled from "styled-components";
 import Spinner from "../assets/CircularSpinner";
 import { AppContext } from "../AppContext/AppContext";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
 
 const StockNews = () => {
+  const { t } = useTranslation();
+
   const [data, setdata] = React.useState();
   const { ticker } = useContext(AppContext);
 
@@ -50,17 +54,21 @@ const StockNews = () => {
   return (
     <>
       <Wrapper>
-        <h1>Recent News</h1>
+        <h1>{t("RecentNews.1")}</h1>
         {Object.values(data["data"]).map((news, index) => {
           return (
             <NewsContainer key={index}>
               <div>{news.date}</div>
               <img src={news.image_url} alt="news"></img>
 
-              <div>Source: {news.source_name}</div>
+              <div>
+                {t("Source.1")}: {news.source_name}
+              </div>
               <div>{news.title}</div>
-              <div>Summary: {news.text}</div>
-              <a href={news.news_url}>Read more...</a>
+              <div>
+                {t("Summary.1")}: {news.text}
+              </div>
+              <a href={news.news_url}>{t("ReadMore.1")}...</a>
             </NewsContainer>
           );
         })}

@@ -2,8 +2,12 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import styled from "styled-components";
 import Data from "../assets/allTickers.json";
 import { AppContext } from "../../components/AppContext/AppContext";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const WatchlistForm = (props) => {
+  const { t } = useTranslation();
+
   const { appUser } = useContext(AppContext);
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
   const [display, setDisplay] = useState(false);
@@ -65,34 +69,16 @@ const WatchlistForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {props.edit ? (
-          <>
-            <input
-              type="text"
-              id="UpdateTicker"
-              placeholder="Update ticker"
-              value={input}
-              name="text"
-              onChange={handleChange}
-              ref={inputRef}
-              onKeyDown={(ev) => handleKeyPress(ev)}
-            ></input>
-            <button onClick={handleSubmit}>Update</button>
-          </>
-        ) : (
-          <>
-            <input
-              type="text"
-              id="AddTicker"
-              placeholder="Add a ticker"
-              value={input}
-              name="text"
-              onChange={handleChange}
-              ref={inputRef}
-            ></input>
-            <button onClick={handleSubmit}>Add</button>
-          </>
-        )}
+        <input
+          type="text"
+          id="AddTicker"
+          placeholder={t("AddTicker")}
+          value={input}
+          name="text"
+          onChange={handleChange}
+          ref={inputRef}
+        ></input>
+        <button onClick={handleSubmit}>{t("Add")}</button>
       </form>
       {display && (
         <div className="autoContainer">

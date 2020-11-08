@@ -4,10 +4,14 @@ import { AppContext } from "../../components/AppContext/AppContext";
 import Watchlist from "../Watchlist/Watchlist";
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import * as firebase from "firebase";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const db = firebase.database();
 
 const Profile = () => {
+  const { t } = useTranslation();
+
   const { appUser } = useContext(AppContext);
   console.log(appUser.email);
 
@@ -79,10 +83,14 @@ const Profile = () => {
   return (
     <>
       <Wrapper>
-        <div>Hi {appUser.displayName}!</div>
-        <h1>My profile</h1>
-        <div>Email address: {appUser.email}</div>
-        <h1 className="watchlist-component">Watchlist: </h1>
+        <div>
+          {t("Hi.1")} {appUser.displayName}!
+        </div>
+        <h1>{t("Profile.1")}</h1>
+        <div>
+          {t("Email.1")}: {appUser.email}
+        </div>
+        <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
 
         <WatchlistForm onSubmit={addStock} />
         <Watchlist removeTicker={removeTicker} updateTicker={updateTicker} />

@@ -53,13 +53,13 @@ const FX = () => {
           <FcCurrencyExchange />
         </h1>
         <div>
-          {t("FromFX.1")}:{data["Meta Data"]["2. From Symbol"]}
+          {t("FromFX.1")}: {data["Meta Data"]["2. From Symbol"]}
         </div>
         <div>
-          {t("ToFX.1")}:{data["Meta Data"]["3. To Symbol"]}
+          {t("ToFX.1")}: {data["Meta Data"]["3. To Symbol"]}
         </div>
         <div>
-          {t("Conversion.1")}:
+          {t("Conversion.1")}:{" "}
           <strong>
             {Object.entries(data["Time Series FX (1min)"])[0][1]["4. close"]}
           </strong>

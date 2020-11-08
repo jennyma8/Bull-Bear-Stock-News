@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 import Spinner from "../assets/CircularSpinner";
 
 require("dotenv").config();
@@ -11,6 +13,8 @@ const Company = () => {
 
   const [companyData, setCompanyData] = React.useState();
   const [quoteData, setQuoteData] = React.useState();
+
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     if (ticker !== "") {
@@ -78,36 +82,46 @@ const Company = () => {
     Object.keys(quoteData) == "Error Message" ||
     Object.keys(quoteData) == "Note"
   ) {
-    return (
-      <h1>
-        Sorry, no result found. Please retry another ticker or retry in 1
-        minute.
-      </h1>
-    );
+    return <h1>{t("Sorry.1")}</h1>;
   }
 
   return (
     <>
       <WrapperQuote>
-        <div>Symbol: {quoteData["Meta Data"]["2. Symbol"]}</div>
         <div>
-          Last Price:{" "}
+          {t("Symbol.1")}: {quoteData["Meta Data"]["2. Symbol"]}
+        </div>
+        <div>
+          {t("LastPrice.1")}:{" "}
           {Object.entries(quoteData["Time Series (1min)"])[0][1]["4. close"]}
         </div>
         <div>
-          Last Update: {Object.entries(quoteData["Time Series (1min)"])[0][0]}
+          {t("LastUpdate.1")}:{" "}
+          {Object.entries(quoteData["Time Series (1min)"])[0][0]}
         </div>
       </WrapperQuote>
       <WrapperCompany>
-        <div>Company Name: {companyData.Name}</div>
+        <div>
+          {t("CompanyName.1")}: {companyData.Name}
+        </div>
         <Desc>
-          <strong>Description:</strong> {companyData.Description}
+          <strong>{t("Description.1")}:</strong> {companyData.Description}
         </Desc>
-        <div>Exchange: {companyData.Exchange}</div>
-        <div>Country: {companyData.Country}</div>
-        <div>Sector: {companyData.Sector}</div>
-        <div>Industry: {companyData.Industry}</div>
-        <div>Address: {companyData.Address}</div>
+        <div>
+          {t("ExchangePlatform.1")}: {companyData.Exchange}
+        </div>
+        <div>
+          {t("Country.1")}: {companyData.Country}
+        </div>
+        <div>
+          {t("Sector.1")}: {companyData.Sector}
+        </div>
+        <div>
+          {t("Industry.1")}: {companyData.Industry}
+        </div>
+        <div>
+          {t("Address.1")}: {companyData.Address}
+        </div>
       </WrapperCompany>
     </>
   );

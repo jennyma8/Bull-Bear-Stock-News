@@ -6,7 +6,7 @@
     "1": "Stocks"
   },
   "Profile": {
-    "1": "Profile"
+    "1": "My Profile"
   },
   "About": {
     "1": "About"
@@ -43,5 +43,55 @@
   },
   "Search": {
     "1": "Search..."
-  }
+  },
+  "Sorry": {
+    "1": "Sorry, no result found. Please retry another ticker or retry in 1 minute."
+  },
+  "Symbol": {
+    "1": "Symbol"
+  },
+  "LastPrice": {
+    "1": "Last Price"
+  },
+  "LastUpdate": {
+    "1": "Last Update"
+  },
+  "CompanyName": {
+    "1": "Company Name"
+  },
+  "Description": {
+    "1": "Description"
+  },
+  "ExchangePlatform": {
+    "1": "Stock Exchange"
+  },
+  "Country": {
+    "1": "Country"
+  },
+  "Sector": {
+    "1": "Sector"
+  },
+  "Industry": {
+    "1": "Industry"
+  },
+  "Address": {
+    "1": "Address"
+  },
+  "Hi": {
+    "1": "Hi"
+  },
+  "Email": {
+    "1": "Email address"
+  },
+  "Watchlist": {
+    "1": "Watchlist"
+  },
+  "RecentNews": {
+    "1": "Recent News"
+  },
+  "Consult": {
+    "1": "Consult Quote & News"
+  },
+  "AddTicker": "Add a ticker",
+  "Add": "Add"
 }
