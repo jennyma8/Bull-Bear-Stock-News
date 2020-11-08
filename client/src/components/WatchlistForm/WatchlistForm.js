@@ -31,15 +31,16 @@ const WatchlistForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (input.length > 0) {
+      //values pushed to firebase
+      props.onSubmit({
+        id: Math.floor(Math.random() * 10000),
+        text: input,
+        email: appUser.email,
+      });
 
-    //values pushed to firebase
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
-      text: input,
-      email: appUser.email,
-    });
-
-    setInput("");
+      setInput("");
+    }
   };
 
   const updateSearchBar = (selection) => {
