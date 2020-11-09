@@ -17,17 +17,10 @@ const Profile = () => {
 
   const { watchlist, setWatchlist } = useContext(AppContext);
 
-  //handle
-  //firebase
-  // function writeUserData(userId, name, email, imageUrl) {
-  //   db.ref("users/" + userId).set({
-  //     username: name,
-  //     email: email,
-  //     profile_picture: imageUrl,
-  //   });
-  // }
-  // writeUserData();
+  let currentUser = appUser.email;
+  console.log(currentUser);
 
+  //handle
   //push watchlist array in database
   const addStock = (stock) => {
     console.log(stock); //includes stock.company
@@ -75,26 +68,38 @@ const Profile = () => {
 
         setWatchlist(data);
       });
-      console.log(appUser);
     }
   }, [appUser]);
 
-  // console.log(watchlist);
+  console.log(watchlist);
+  //filter watchlist with currentUser email
+  let currentWatchlist = watchlist.filter(
+    (stock) => stock.email === appUser.email
+  );
+  console.log(currentWatchlist);
 
   return (
     <>
       <Wrapper>
-        <div>
-          {t("Hi.1")} {appUser.displayName}!
-        </div>
-        <h1>{t("Profile.1")}</h1>
-        <div>
-          {t("Email.1")}: {appUser.email}
-        </div>
-        <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
-
-        <WatchlistForm onSubmit={addStock} />
-        <Watchlist removeTicker={removeTicker} updateTicker={updateTicker} />
+        {appUser.displayName ? (
+          <WrapperProfile>
+            <div>
+              {t("Hi.1")} {appUser.displayName}!
+            </div>
+            <h1>{t("Profile.1")}</h1>
+            <div>
+              {t("Email.1")}: {appUser.email}
+            </div>
+            <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
+            <WatchlistForm onSubmit={addStock} />
+            <Watchlist
+              removeTicker={removeTicker}
+              updateTicker={updateTicker}
+            />
+          </WrapperProfile>
+        ) : (
+          "Please sign in to access your profile."
+        )}
       </Wrapper>
     </>
   );
@@ -105,5 +110,7 @@ const Wrapper = styled.div`
   margin-left: 50px;
   min-height: 500px;
 `;
+
+const WrapperProfile = styled.div``;
 
 export default Profile;

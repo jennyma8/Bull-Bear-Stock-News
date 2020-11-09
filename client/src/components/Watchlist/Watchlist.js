@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AppContext } from "../../components/AppContext/AppContext";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -16,23 +16,8 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
 
   const { appUser } = useContext(AppContext);
   const { watchlist, setWatchlist } = useContext(AppContext);
-  console.log(watchlist);
-
-  // const appUserEmail = appUser.email;
-  // console.log(appUserEmail);
-
-  // let logWatchlist = watchlist.map((stock) => {
-  //   let list = {
-  //     email: stock.email,
-  //     text: stock.text,
-  //   };
-  //   if (stock.email === appUser.Email) {
-  //     list["text"] = stock.text;
-  //   }
-
-  //   return list;
-  // });
-  // console.log(logWatchlist);
+  let currentUser = appUser.email;
+  console.log(currentUser);
 
   const [edit, setEdit] = useState({
     id: null,
@@ -51,10 +36,15 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
       company: "",
     });
   };
+
   const handleHistory = (text) => {
     history.push(`/stocks/${text}`);
     console.log(text);
   };
+
+  React.useEffect(() => {
+    return () => {};
+  }, [appUser]);
 
   if (edit.id) {
     return (
@@ -63,10 +53,17 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
       </>
     );
   }
+  console.log(watchlist);
+
+  //filter watchlist with currentUser email
+  let currentWatchlist = watchlist.filter(
+    (stock) => stock.email === appUser.email
+  );
+  console.log(currentWatchlist);
 
   //watchlist with link to stockpage
   //autocomplete search bar from all tickers local json file
-  return watchlist.map((stock, index) => (
+  return currentWatchlist.map((stock, index) => (
     <Wrapper key={index}>
       <WatchStock key={stock.id}>
         {stock.text} - {stock.company}
@@ -79,11 +76,6 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
           onClick={() => removeTicker(stock.id)}
           className="delete-icon"
         />
-        {/* added an edit button but found it useless in the end so I uncomment it for now*/}
-        {/* <TiEdit
-          onClick={() => setEdit({ id: stock.id, value: stock.text })}
-          className="edit-icon"
-        /> */}
       </div>
     </Wrapper>
   ));
