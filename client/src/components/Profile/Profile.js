@@ -13,12 +13,12 @@ const Profile = () => {
   const { t } = useTranslation();
 
   const { appUser } = useContext(AppContext);
-  console.log(appUser.email);
+  // console.log(appUser.email);
 
   const { watchlist, setWatchlist } = useContext(AppContext);
 
   let currentUser = appUser.email;
-  console.log(currentUser);
+  // console.log(currentUser);
 
   //handle
   //push watchlist array in database
@@ -58,12 +58,12 @@ const Profile = () => {
   useEffect(() => {
     if (appUser.email) {
       db.ref("watchlist").on("value", (snapshot) => {
-        console.log(snapshot.val());
+        // console.log(snapshot.val());
         let data = [];
 
         snapshot.forEach((snap) => {
           data.push(snap.val());
-          console.log(data);
+          // console.log(data);
         });
 
         setWatchlist(data);
@@ -71,12 +71,12 @@ const Profile = () => {
     }
   }, [appUser]);
 
-  console.log(watchlist);
+  // console.log(watchlist);
   //filter watchlist with currentUser email
   let currentWatchlist = watchlist.filter(
     (stock) => stock.email === appUser.email
   );
-  console.log(currentWatchlist);
+  // console.log(currentWatchlist);
 
   return (
     <>

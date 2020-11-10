@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FcCurrencyExchange } from "react-icons/fc";
 import Spinner from "../assets/CircularSpinner";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import i18next from "i18next";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;

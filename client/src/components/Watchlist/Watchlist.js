@@ -3,7 +3,7 @@ import { AppContext } from "../../components/AppContext/AppContext";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import i18next from "i18next";
 
 import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -17,7 +17,7 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
   const { appUser } = useContext(AppContext);
   const { watchlist, setWatchlist } = useContext(AppContext);
   let currentUser = appUser.email;
-  console.log(currentUser);
+  // console.log(currentUser);
 
   const [edit, setEdit] = useState({
     id: null,
@@ -53,13 +53,13 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
       </>
     );
   }
-  console.log(watchlist);
+  // console.log(watchlist);
 
   //filter watchlist with currentUser email
   let currentWatchlist = watchlist.filter(
     (stock) => stock.email === appUser.email
   );
-  console.log(currentWatchlist);
+  // console.log(currentWatchlist);
 
   //watchlist with link to stockpage
   //autocomplete search bar from all tickers local json file

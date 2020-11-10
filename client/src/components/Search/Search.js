@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import i18next from "i18next";
 
 import { FiSearch } from "react-icons/fi";
 import Data from "../assets/allTickers.json";

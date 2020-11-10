@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Spinner from "../assets/CircularSpinner";
 import { AppContext } from "../AppContext/AppContext";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import i18next from "i18next";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;

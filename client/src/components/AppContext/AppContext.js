@@ -21,7 +21,7 @@ const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
 };
 
-const db = firebaseApp.database().ref();
+// const db = firebaseApp.database().ref();
 
 const AppProvider = ({ children, signInWithGoogle, signOut, user }) => {
   const [appUser, setAppUser] = useState({});

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Data from "../assets/allTickers.json";
 import { AppContext } from "../../components/AppContext/AppContext";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+// import i18next from "i18next";
 
 const WatchlistForm = (props) => {
   const { t } = useTranslation();
