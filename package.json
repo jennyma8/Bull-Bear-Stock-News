@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@slack/web-api": "^5.8.0",
+    "@vitalets/google-translate-api": "^4.0.0",
     "body-parser": "^1.19.0",
     "configstore": "^5.0.1",
     "dotenv": "^8.2.0",

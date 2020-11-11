@@ -73,16 +73,7 @@ const createUser = async (req, res) => {
   }
 };
 
-//watchlist
-// const getWatchlist = async () => {
-//   const data = (await queryDatabase(`watchlist`)) || {};
-//   const dataValue = Object.keys(data).map((item) => data[item]);
-
-//   return dataValue || false;
-// };
-
 module.exports = {
   createUser,
   getUser,
-  // getWatchlist,
 };
