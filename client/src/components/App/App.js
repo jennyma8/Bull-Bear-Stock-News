@@ -13,6 +13,20 @@ import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
 import About from "../About/About";
 import Error from "../Error/Error";
+import Test from "../google-translate/test";
+
+// const translate = require("google-translate-api");
+// translate.languages["en"] = "English";
+// translate("Ik spreek Engels")
+//   .then((res) => {
+//     console.log(res.text);
+//     //=> I speak English
+//     console.log(res.from.language.iso);
+//     //=> nl
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 const App = () => {
   const { appUser, signInWithGoogle, handleSignOut } = useContext(AppContext);
@@ -62,6 +76,7 @@ const App = () => {
             </Route>
             <Route exact path="/about">
               <About />
+              <Test />
             </Route>
 
             <Route exact path="/">
