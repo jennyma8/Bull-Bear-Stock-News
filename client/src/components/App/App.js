@@ -13,7 +13,6 @@ import Footer from "../../components/Footer/Footer";
 import Profile from "../Profile/Profile";
 import About from "../About/About";
 import Error from "../Error/Error";
-import Test from "../google-translate/test";
 
 // const translate = require("google-translate-api");
 // translate.languages["en"] = "English";
@@ -76,7 +75,6 @@ const App = () => {
             </Route>
             <Route exact path="/about">
               <About />
-              <Test />
             </Route>
 
             <Route exact path="/">
