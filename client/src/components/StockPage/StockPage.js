@@ -42,9 +42,9 @@ const Wrapper = styled.div`
 `;
 
 const StockWrapper = styled.div`
-  width: 100%;
   display: flex;
-
+  justify-content: space-between;
+  width: 100%;
   @media (max-width: 1200px) {
     /* ... */
   }
@@ -55,17 +55,15 @@ const StockWrapper = styled.div`
 `;
 
 const QuoteWrapper = styled.div`
-  position: sticky;
-  top: 0;
   margin-top: 85px;
   margin-left: 50px;
   margin-right: 50px;
   border: 1px solid black;
   background: white;
+  padding: 10px;
+  height: 100%;
   width: 50%;
   float: left;
-  height: 100%;
-  padding: 10px;
 
   @media (max-width: 1200px) {
   }
@@ -78,6 +76,7 @@ const QuoteWrapper = styled.div`
 `;
 
 const NewsWrapper = styled.div`
+  height: 100%;
   width: 50%;
   float: right;
 `;

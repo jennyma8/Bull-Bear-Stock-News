@@ -77,10 +77,7 @@ const StockNews = () => {
   );
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const Wrapper = styled.div``;
 
 const NewsContainer = styled.div`
   padding: 30px;

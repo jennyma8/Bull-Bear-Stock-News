@@ -145,8 +145,6 @@ const WrapperCompany = styled.div`
 
 const Desc = styled.div`
   padding: 30px;
-  max-height: 100px;
-  overflow-y: scroll;
 `;
 
 const Caps = styled.span`
