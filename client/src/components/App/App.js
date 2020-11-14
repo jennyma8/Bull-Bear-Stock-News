@@ -42,59 +42,63 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        <StyledPageWrapper>
-          <StyledHeader>
-            <Nav />
-            <div className="App">
-              <nav>
-                <button onClick={() => handleClick("en")}>English</button>
-                <button onClick={() => handleClick("fr")}>Français</button>
+      <Wrapper>
+        <Router>
+          <StyledPageWrapper>
+            <StyledHeader>
+              <Nav />
+            </StyledHeader>
+            <WrapperRight>
+              {appUser && appUser.email ? (
+                <StyledUserContainer>
+                  <Avatar src={appUser.photoURL} />
+                  <button onClick={handleSignOut}>{t("SignOut.1")}</button>
+                </StyledUserContainer>
+              ) : (
+                <SignIn>
+                  <button onClick={watchlistSignIn}>{t("SignIn.1")}</button>
+                </SignIn>
+              )}
+              <Language>
+                <button onClick={() => handleClick("en")}>ENGLISH</button>/
+                <button onClick={() => handleClick("fr")}>FRANÇAIS</button>/
                 <button onClick={() => handleClick("chi")}>中文</button>
-              </nav>
-            </div>
-            {appUser && appUser.email ? (
-              <StyledUserContainer>
-                <Avatar src={appUser.photoURL} />
-                <button onClick={handleSignOut}>{t("SignOut.1")}</button>
-              </StyledUserContainer>
-            ) : (
-              <button onClick={watchlistSignIn}>{t("SignIn.1")}</button>
-            )}
-          </StyledHeader>
+              </Language>
+            </WrapperRight>
 
-          <Switch>
-            <Route exact path="/stocks">
-              <StockPage />
-            </Route>
-            <Route path="/stocks/:id">
-              <StockPage />
-            </Route>
-            <Route path="/profile">
-              <Profile />
-            </Route>
-            <Route exact path="/about">
-              <About />
-            </Route>
+            <Switch>
+              <Route exact path="/stocks">
+                <StockPage />
+              </Route>
+              <Route path="/stocks/:id">
+                <StockPage />
+              </Route>
+              <Route path="/profile">
+                <Profile />
+              </Route>
+              <Route exact path="/about">
+                <About />
+              </Route>
 
-            <Route exact path="/">
-              <Homepage />
-            </Route>
-            <Route path="/*">
-              <Error />
-            </Route>
-          </Switch>
-        </StyledPageWrapper>
-        <Footer />
-      </Router>
+              <Route exact path="/">
+                <Homepage />
+              </Route>
+              <Route path="/*">
+                <Error />
+              </Route>
+            </Switch>
+          </StyledPageWrapper>
+          <Footer />
+        </Router>
+      </Wrapper>
     </>
   );
 };
 
+const Wrapper = styled.div``;
 const StyledPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0;
 `;
 
 const StyledHeader = styled.div`
@@ -106,14 +110,60 @@ const StyledHeader = styled.div`
   margin: 0;
   top: 0;
   width: 100%;
-  justify-content: space-between;
+
   background: white;
 `;
 
 const StyledUserContainer = styled.div`
   display: flex;
-  align-items: center;
-  margin-right: 30px;
+  justify-content: flex-end;
+
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
 `;
 
+const Language = styled.div`
+  z-index: 501;
+  display: flex;
+
+  justify-content: flex-end;
+
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  button:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+`;
+
+const WrapperRight = styled.div`
+  position: fixed;
+  right: 0;
+  z-index: 501;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  button {
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  button:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+`;
+
+const SignIn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
 export default App;

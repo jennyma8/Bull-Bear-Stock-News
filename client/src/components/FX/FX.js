@@ -70,11 +70,25 @@ const FX = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 100px;
+  position: fixed;
+  margin-top: 120px;
+  margin-left: 0px;
+  height: 100%;
   border-right: 1px solid lightgrey;
+  background: linear-gradient(to bottom right, #000066 22%, #ffffff 100%);
+  color: white;
+  padding: 15px;
 
   div {
-    padding: 5px;
+  }
+  @media (max-width: 1200px) {
+    /* ... */
+  }
+
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
   }
 `;
+
 export default FX;

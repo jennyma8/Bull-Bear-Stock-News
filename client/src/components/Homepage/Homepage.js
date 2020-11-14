@@ -47,8 +47,9 @@ const Homepage = () => {
     <>
       <Wrapper>
         <FX />
+
+        <GlobalTitle>{t("GlobalMarketNews.1")}</GlobalTitle>
         <NewsWrapper>
-          <h1>{t("GlobalMarketNews.1")}</h1>
           {Object.values(data["data"]).map((news, index) => {
             return (
               <NewsContainer key={index}>
@@ -78,29 +79,49 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
+const GlobalTitle = styled.h1`
+  position: fixed;
+  z-index: 503;
+  margin-top: 120px;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  background: white;
+`;
 const NewsWrapper = styled.div`
-  margin-top: 100px;
   width: 100%;
   height: 100%;
+  margin-top: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
+
 const NewsContainer = styled.div`
-  border: 1px solid lightgrey;
+  background: #f2f2f2;
   border-radius: 10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
-  height: 100%;
+  width: 600px;
+
   margin-bottom: 15px;
+
+  @media (max-width: 1200px) {
+    /* ... */
+  }
+
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+  }
 `;
 
 const Title = styled.h1`
   font-size: 30px;
   font-weight: bold;
 `;
+
 export default Homepage;

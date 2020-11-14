@@ -4,9 +4,6 @@ const morgan = require("morgan");
 const { createUser } = require("./handlers");
 const { getUser } = require("./handlers");
 
-//google-translate-api
-const translate = require("@vitalets/google-translate-api");
-
 require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
@@ -33,24 +30,4 @@ express()
   .get("/users", getUser)
   .post("/users", createUser)
 
-  //google-translate-api
-  // .get("/speechtranslator", (req, res) => {
-  //   res.render("speechtranslator", {
-  //     translated: "",
-  //   });
-  // })
-
-  // .post("/speechtranslator", (req, res) => {
-  //   console.log(req.body.speech);
-
-  //   translate(req.body.speech, { to: req.body.language })
-  //     .then((response) => {
-  //       res.json("speechtranslator", {
-  //         translated: response.text,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // })
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));

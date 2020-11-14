@@ -2,15 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-// import i18next from "i18next";
 import Logo from "../assets/LogoBBv2.jpg";
 
 const Nav = () => {
   const { t } = useTranslation();
-
-  // const changeLanguage = (lang) => {
-  //   i18next.changeLanguage(lang);
-  // };
 
   return (
     <>
@@ -37,6 +32,8 @@ const Wrapper = styled.div`
   z-index: 500; */
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
 `;
 
 const TitleContainer = styled.div`
@@ -48,7 +45,12 @@ const Title = styled.div`
 const LogoSrc = styled.div`
   padding: 5px;
 `;
-
+const Bar = styled.div`
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
 const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: #6b45e7;
@@ -60,5 +62,4 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const Bar = styled.div``;
 export default Nav;

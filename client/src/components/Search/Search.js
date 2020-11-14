@@ -100,7 +100,7 @@ const Search = (props) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 150px;
+  margin-top: 160px;
   display: flex;
   justify-content: center;
 `;
