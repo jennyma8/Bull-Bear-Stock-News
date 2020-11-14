@@ -75,7 +75,7 @@ const Wrapper = styled.div`
   margin-left: 0px;
   height: 100%;
   border-right: 1px solid lightgrey;
-  background: linear-gradient(to bottom right, #000066 22%, #ffffff 100%);
+  background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
   color: white;
   padding: 15px;
 

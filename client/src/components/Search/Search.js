@@ -69,41 +69,52 @@ const Search = (props) => {
   return (
     <>
       <Wrapper>
-        <form>
-          <SearchInput
-            placeholder={t("Search.1")}
-            onChange={handleChange}
-            value={tickerInput}
-            // onKeyDown={(ev) => handleKeyPress(ev)}
-          ></SearchInput>
-          <Button type="button" onClick={handleSubmit}>
-            <FiSearch size={25} />
-          </Button>
-        </form>
-      </Wrapper>{" "}
-      {display && (
-        <div className="autoContainer">
-          {newData.map((stock, index) => {
-            return (
-              <Display
-                key={index}
-                onClick={() => updateSearchBar(stock.ticker)}
-              >
-                {stock.ticker} - {stock.name}
-              </Display>
-            );
-          })}
-        </div>
-      )}
+        <FormContainer>
+          <form>
+            <SearchInput
+              placeholder={t("Search.1")}
+              onChange={handleChange}
+              value={tickerInput}
+              // onKeyDown={(ev) => handleKeyPress(ev)}
+            ></SearchInput>
+            <Button type="button" onClick={handleSubmit}>
+              <FiSearch size={25} />
+            </Button>
+          </form>
+        </FormContainer>
+        <DisplayContainer className="autoContainer">
+          {display && (
+            <div>
+              {newData.map((stock, index) => {
+                return (
+                  <Display
+                    key={index}
+                    onClick={() => updateSearchBar(stock.ticker)}
+                  >
+                    <li>
+                      {stock.ticker} - {stock.name}
+                    </li>
+                  </Display>
+                );
+              })}
+            </div>
+          )}
+        </DisplayContainer>
+      </Wrapper>
     </>
   );
 };
 
 const Wrapper = styled.div`
   margin-top: 160px;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
+
+const FormContainer = styled.div``;
 const SearchInput = styled.input`
   border-radius: 20px;
   height: 50px;
@@ -127,7 +138,31 @@ const Button = styled.button`
   }
 `;
 
-const Display = styled.div``;
+const DisplayContainer = styled.div`
+  /* 
+  display: flex;
+  flex-direction: column; */
+`;
+const Display = styled.div`
+  /* width: 100%;
+  display: flex;
+  flex-direction: column; */
+
+  width: 100%;
+  align-items: center;
+  margin-left: 240px;
+  margin-top: 5px;
+  li {
+    display: inline;
+    padding: 1px;
+    list-style-type: none;
+  }
+
+  li:hover {
+    background: lightgrey;
+    cursor: pointer;
+  }
+`;
 export default Search;
 
 //check M4-3 for typeahead search bar
