@@ -89,7 +89,7 @@ const Company = () => {
     <>
       <WrapperQuote>
         <div>
-          {t("Symbol.1")}: {quoteData["Meta Data"]["2. Symbol"]}
+          {t("Symbol.1")}: <Caps>{quoteData["Meta Data"]["2. Symbol"]}</Caps>
         </div>
         <div>
           {t("LastPrice.1")}:{" "}
@@ -104,9 +104,6 @@ const Company = () => {
         <div>
           {t("CompanyName.1")}: {companyData.Name}
         </div>
-        <Desc>
-          <strong>{t("Description.1")}:</strong> {companyData.Description}
-        </Desc>
         <div>
           {t("ExchangePlatform.1")}: {companyData.Exchange}
         </div>
@@ -122,6 +119,9 @@ const Company = () => {
         <div>
           {t("Address.1")}: {companyData.Address}
         </div>
+        <Desc>
+          <strong>{t("Description.1")}:</strong> {companyData.Description}
+        </Desc>
       </WrapperCompany>
     </>
   );
@@ -140,9 +140,16 @@ const WrapperQuote = styled.div`
 const WrapperCompany = styled.div`
   margin-top: 20px;
   background-color: lightgrey;
+  padding: 10px;
 `;
 
 const Desc = styled.div`
   padding: 30px;
+  max-height: 100px;
+  overflow-y: scroll;
+`;
+
+const Caps = styled.span`
+  text-transform: uppercase;
 `;
 export default Company;

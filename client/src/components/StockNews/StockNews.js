@@ -83,7 +83,9 @@ const Wrapper = styled.div`
 `;
 
 const NewsContainer = styled.div`
-  padding: 10px;
+  padding: 30px;
+  border: 1px solid lightgrey;
+  margin-bottom: 20px;
 `;
 
 export default StockNews;

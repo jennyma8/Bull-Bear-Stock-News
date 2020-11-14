@@ -22,7 +22,9 @@ const StockPage = () => {
           <QuoteWrapper>
             <Company />
           </QuoteWrapper>
-          <StockNews />
+          <NewsWrapper>
+            <StockNews />
+          </NewsWrapper>
         </StockWrapper>
       </Wrapper>
     </>
@@ -40,27 +42,30 @@ const Wrapper = styled.div`
 `;
 
 const StockWrapper = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
 
   @media (max-width: 1200px) {
     /* ... */
   }
   @media (max-width: 1024px) {
-    flex-direction: column;
-    justify-content: center;
   }
   @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
   }
 `;
 
 const QuoteWrapper = styled.div`
-  margin: 50px;
+  position: sticky;
+  top: 0;
+  margin-top: 85px;
+  margin-left: 50px;
+  margin-right: 50px;
   border: 1px solid black;
   background: white;
+  width: 50%;
+  float: left;
   height: 100%;
+  padding: 10px;
 
   @media (max-width: 1200px) {
   }
@@ -70,6 +75,11 @@ const QuoteWrapper = styled.div`
 
   @media (max-width: 768px) {
   }
+`;
+
+const NewsWrapper = styled.div`
+  width: 50%;
+  float: right;
 `;
 
 export default StockPage;
