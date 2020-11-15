@@ -90,9 +90,12 @@ const Profile = () => {
                   {t("Hi.1")} {appUser.displayName}!
                 </div>
                 <h1>{t("Profile.1")}</h1>
+                <div>Name: Jenny Ma</div>
                 <div>
                   {t("Email.1")}: {appUser.email}
-                </div>{" "}
+                </div>
+                <div>Preferred Language: English</div>
+                <div>City: Montreal</div>
                 <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
                 <WatchlistForm onSubmit={addStock} />
                 <Watchlist

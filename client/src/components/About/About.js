@@ -37,6 +37,8 @@ const About = () => {
             <strong>Back-End:</strong> Node, Express, MongoDB, Firebase
           </div>
         </Profile>
+        <br></br>
+        <br></br>
         <strong>Credits to:</strong>
         <div>AlphaVantage for stock quotes and company description</div>
         <div>StockNewsAPI for stock news</div>
@@ -49,6 +51,7 @@ const Wrapper = styled.div`
   margin-top: 150px;
   background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
   font-size: 20px;
+  padding: 15px;
 `;
 
 const Profile = styled.div`

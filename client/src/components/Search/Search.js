@@ -82,7 +82,7 @@ const Search = (props) => {
             </Button>
           </form>
         </FormContainer>
-        <DisplayContainer className="autoContainer">
+        <DisplayContainer>
           {display && (
             <div>
               {newData.map((stock, index) => {
@@ -106,15 +106,14 @@ const Search = (props) => {
 };
 
 const Wrapper = styled.div`
-  margin-top: 160px;
+  margin-top: 170px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
-const FormContainer = styled.div``;
+const FormContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const SearchInput = styled.input`
   border-radius: 20px;
   height: 50px;
@@ -140,9 +139,7 @@ const Button = styled.button`
 
 const DisplayContainer = styled.div``;
 const Display = styled.div`
-  width: 100%;
-  align-items: center;
-  margin-left: 240px;
+  margin-left: 500px;
   margin-top: 5px;
   li {
     display: inline;

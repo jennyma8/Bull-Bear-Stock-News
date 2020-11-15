@@ -89,13 +89,13 @@ const Company = () => {
     <>
       <Wrapper>
         <WrapperQuote>
-          <div>
+          <h1>
             {t("Symbol.1")}: <Caps>{quoteData["Meta Data"]["2. Symbol"]}</Caps>
-          </div>
-          <div>
+          </h1>
+          <h1>
             {t("LastPrice.1")}:{" "}
             {Object.entries(quoteData["Time Series (1min)"])[0][1]["4. close"]}
-          </div>
+          </h1>
           <div>
             {t("LastUpdate.1")}:{" "}
             {Object.entries(quoteData["Time Series (1min)"])[0][0]}
@@ -103,22 +103,22 @@ const Company = () => {
         </WrapperQuote>
         <WrapperCompany>
           <div>
-            {t("CompanyName.1")}: {companyData.Name}
+            <strong>{t("CompanyName.1")}</strong>: {companyData.Name}
           </div>
           <div>
-            {t("ExchangePlatform.1")}: {companyData.Exchange}
+            <strong>{t("ExchangePlatform.1")}</strong>: {companyData.Exchange}
           </div>
           <div>
-            {t("Country.1")}: {companyData.Country}
+            <strong>{t("Country.1")}</strong>: {companyData.Country}
           </div>
           <div>
-            {t("Sector.1")}: {companyData.Sector}
+            <strong>{t("Sector.1")}</strong>: {companyData.Sector}
           </div>
           <div>
-            {t("Industry.1")}: {companyData.Industry}
+            <strong>{t("Industry.1")}</strong>: {companyData.Industry}
           </div>
           <div>
-            {t("Address.1")}: {companyData.Address}
+            <strong>{t("Address.1")}</strong>: {companyData.Address}
           </div>
           <Desc>
             <strong>{t("Description.1")}:</strong> {companyData.Description}
@@ -135,17 +135,18 @@ const Company = () => {
 })}
 </div> */
 const Wrapper = styled.div`
-  border: 1px solid black;
+  border: 1px solid lightgrey;
 `;
 const WrapperQuote = styled.div`
   background-color: white;
-  font-size: 30px;
+
+  padding: 20px;
 `;
 
 const WrapperCompany = styled.div`
   margin-top: 20px;
   background-color: lightgrey;
-  padding: 10px;
+  padding: 20px;
 `;
 
 const Desc = styled.div`

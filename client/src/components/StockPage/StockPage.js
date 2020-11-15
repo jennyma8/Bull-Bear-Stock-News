@@ -55,7 +55,7 @@ const StockWrapper = styled.div`
 `;
 
 const QuoteWrapper = styled.div`
-  margin-top: 85px;
+  margin-top: 73px;
   margin-left: 50px;
   margin-right: 50px;
 
