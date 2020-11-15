@@ -83,6 +83,14 @@ const Watchlist = ({ removeTicker, updateTicker }) => {
 
 const Wrapper = styled.div`
   display: flex;
+
+  button {
+    outline: none;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 const WatchStock = styled.div`

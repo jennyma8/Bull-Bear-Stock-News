@@ -69,7 +69,8 @@ const Homepage = () => {
             );
           })}
         </NewsWrapper>
-      </Wrapper>
+      </Wrapper>{" "}
+      <Advertisement>Advertisement</Advertisement>
     </>
   );
 };
@@ -124,4 +125,17 @@ const Title = styled.h1`
   font-weight: bold;
 `;
 
+const Advertisement = styled.div`
+  position: fixed;
+  margin-top: 150px;
+  padding-top: 50px;
+  right: 15px;
+  width: 310px;
+  height: 100%;
+
+  background: #f7f7f7;
+  border-radius: 15px;
+
+  text-align: center;
+`;
 export default Homepage;

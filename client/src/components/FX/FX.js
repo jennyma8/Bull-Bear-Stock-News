@@ -50,7 +50,7 @@ const FX = () => {
       <Wrapper>
         <h1>
           {t("Exchange.1")}
-          <FcCurrencyExchange />
+          <FcCurrencyExchange style={{ height: 50, width: 50 }} />
         </h1>
         <div>
           {t("FromFX.1")}: {data["Meta Data"]["2. From Symbol"]}
@@ -70,14 +70,16 @@ const FX = () => {
 };
 
 const Wrapper = styled.div`
+  background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
   position: fixed;
+  border-radius: 20px;
   margin-top: 120px;
   margin-left: 0px;
   height: 100%;
-  border-right: 1px solid lightgrey;
-  background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
+
   color: white;
   padding: 15px;
+  padding-top: 60px;
 
   div {
   }

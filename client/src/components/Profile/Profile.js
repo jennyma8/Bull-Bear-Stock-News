@@ -6,6 +6,7 @@ import WatchlistForm from "../WatchlistForm/WatchlistForm";
 import * as firebase from "firebase";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import CompanyLogos from "../assets/Companylogos.png";
 
 const db = firebase.database();
 
@@ -83,19 +84,29 @@ const Profile = () => {
       <Wrapper>
         {appUser.displayName ? (
           <WrapperProfile>
-            <div>
-              {t("Hi.1")} {appUser.displayName}!
-            </div>
-            <h1>{t("Profile.1")}</h1>
-            <div>
-              {t("Email.1")}: {appUser.email}
-            </div>
-            <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
-            <WatchlistForm onSubmit={addStock} />
-            <Watchlist
-              removeTicker={removeTicker}
-              updateTicker={updateTicker}
-            />
+            <WrapperTop>
+              <div>
+                <div>
+                  {t("Hi.1")} {appUser.displayName}!
+                </div>
+                <h1>{t("Profile.1")}</h1>
+                <div>
+                  {t("Email.1")}: {appUser.email}
+                </div>{" "}
+                <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
+                <WatchlistForm onSubmit={addStock} />
+                <Watchlist
+                  removeTicker={removeTicker}
+                  updateTicker={updateTicker}
+                />
+              </div>
+
+              <img
+                src={CompanyLogos}
+                alt="Logo"
+                style={{ height: 500, width: 600 }}
+              />
+            </WrapperTop>
           </WrapperProfile>
         ) : (
           "Please sign in to access your profile."
@@ -107,10 +118,19 @@ const Profile = () => {
 
 const Wrapper = styled.div`
   margin-top: 200px;
-  margin-left: 50px;
+  color: white;
+  padding: 50px;
   min-height: 500px;
+  background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
 `;
 
+const WrapperTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  img {
+    margin-top: 60px;
+  }
+`;
 const WrapperProfile = styled.div``;
 
 export default Profile;

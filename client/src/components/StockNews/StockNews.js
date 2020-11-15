@@ -83,6 +83,10 @@ const NewsContainer = styled.div`
   padding: 30px;
   border: 1px solid lightgrey;
   margin-bottom: 20px;
+
+  img {
+    width: 500px;
+  }
 `;
 
 export default StockNews;

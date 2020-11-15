@@ -74,7 +74,7 @@ const WatchlistForm = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           id="AddTicker"
           placeholder={t("AddTicker")}
@@ -82,8 +82,8 @@ const WatchlistForm = (props) => {
           name="text"
           onChange={handleChange}
           ref={inputRef}
-        ></input>
-        <button onClick={handleSubmit}>{t("Add")}</button>
+        ></Input>
+        <Button onClick={handleSubmit}>+{t("Add")}</Button>
       </form>
       {display && (
         <div className="autoContainer">
@@ -104,6 +104,24 @@ const WatchlistForm = (props) => {
   );
 };
 
+const Input = styled.input`
+  height: 30px;
+`;
+const Button = styled.button`
+  outline: none;
+  background: #70e000;
+  color: white;
+  height: 35px;
+  width: 50px;
+  font-weight: bold;
+
+  :hover {
+    cursor: pointer;
+    background: white;
+    border: 1px solid #70e000;
+    color: black;
+  }
+`;
 const Display = styled.div`
   width: 400px;
 
