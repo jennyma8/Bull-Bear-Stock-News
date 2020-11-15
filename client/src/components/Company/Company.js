@@ -87,42 +87,44 @@ const Company = () => {
 
   return (
     <>
-      <WrapperQuote>
-        <div>
-          {t("Symbol.1")}: <Caps>{quoteData["Meta Data"]["2. Symbol"]}</Caps>
-        </div>
-        <div>
-          {t("LastPrice.1")}:{" "}
-          {Object.entries(quoteData["Time Series (1min)"])[0][1]["4. close"]}
-        </div>
-        <div>
-          {t("LastUpdate.1")}:{" "}
-          {Object.entries(quoteData["Time Series (1min)"])[0][0]}
-        </div>
-      </WrapperQuote>
-      <WrapperCompany>
-        <div>
-          {t("CompanyName.1")}: {companyData.Name}
-        </div>
-        <div>
-          {t("ExchangePlatform.1")}: {companyData.Exchange}
-        </div>
-        <div>
-          {t("Country.1")}: {companyData.Country}
-        </div>
-        <div>
-          {t("Sector.1")}: {companyData.Sector}
-        </div>
-        <div>
-          {t("Industry.1")}: {companyData.Industry}
-        </div>
-        <div>
-          {t("Address.1")}: {companyData.Address}
-        </div>
-        <Desc>
-          <strong>{t("Description.1")}:</strong> {companyData.Description}
-        </Desc>
-      </WrapperCompany>
+      <Wrapper>
+        <WrapperQuote>
+          <div>
+            {t("Symbol.1")}: <Caps>{quoteData["Meta Data"]["2. Symbol"]}</Caps>
+          </div>
+          <div>
+            {t("LastPrice.1")}:{" "}
+            {Object.entries(quoteData["Time Series (1min)"])[0][1]["4. close"]}
+          </div>
+          <div>
+            {t("LastUpdate.1")}:{" "}
+            {Object.entries(quoteData["Time Series (1min)"])[0][0]}
+          </div>
+        </WrapperQuote>
+        <WrapperCompany>
+          <div>
+            {t("CompanyName.1")}: {companyData.Name}
+          </div>
+          <div>
+            {t("ExchangePlatform.1")}: {companyData.Exchange}
+          </div>
+          <div>
+            {t("Country.1")}: {companyData.Country}
+          </div>
+          <div>
+            {t("Sector.1")}: {companyData.Sector}
+          </div>
+          <div>
+            {t("Industry.1")}: {companyData.Industry}
+          </div>
+          <div>
+            {t("Address.1")}: {companyData.Address}
+          </div>
+          <Desc>
+            <strong>{t("Description.1")}:</strong> {companyData.Description}
+          </Desc>
+        </WrapperCompany>
+      </Wrapper>
     </>
   );
 };
@@ -132,6 +134,9 @@ const Company = () => {
   return <div>{date}<div>Last price: {stockPrice["4. close"]}</div>;
 })}
 </div> */
+const Wrapper = styled.div`
+  border: 1px solid black;
+`;
 const WrapperQuote = styled.div`
   background-color: white;
   font-size: 30px;

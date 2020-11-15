@@ -70,7 +70,7 @@ const Homepage = () => {
           })}
         </NewsWrapper>
       </Wrapper>{" "}
-      <Advertisement>Advertisement</Advertisement>
+      <Advertisement>{t("Advertisement.1")}</Advertisement>
     </>
   );
 };

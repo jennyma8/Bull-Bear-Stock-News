@@ -58,7 +58,7 @@ const QuoteWrapper = styled.div`
   margin-top: 85px;
   margin-left: 50px;
   margin-right: 50px;
-  border: 1px solid black;
+
   background: white;
   padding: 10px;
   height: 100%;

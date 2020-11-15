@@ -96,5 +96,8 @@
     "1": "Consult Quote & News"
   },
   "AddTicker": "Add a ticker",
-  "Add": "Add"
+  "Add": "Add",
+  "Advertisement": {
+    "1": "Advertisement"
+  }
 }

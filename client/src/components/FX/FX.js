@@ -50,7 +50,7 @@ const FX = () => {
       <Wrapper>
         <h1>
           {t("Exchange.1")}
-          <FcCurrencyExchange style={{ height: 50, width: 50 }} />
+          <FcCurrencyExchange style={{ height: 45, width: 45 }} />
         </h1>
         <div>
           {t("FromFX.1")}: {data["Meta Data"]["2. From Symbol"]}
@@ -76,7 +76,7 @@ const Wrapper = styled.div`
   margin-top: 120px;
   margin-left: 0px;
   height: 100%;
-
+  width: 295px;
   color: white;
   padding: 15px;
   padding-top: 60px;

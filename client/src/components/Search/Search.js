@@ -138,16 +138,8 @@ const Button = styled.button`
   }
 `;
 
-const DisplayContainer = styled.div`
-  /* 
-  display: flex;
-  flex-direction: column; */
-`;
+const DisplayContainer = styled.div``;
 const Display = styled.div`
-  /* width: 100%;
-  display: flex;
-  flex-direction: column; */
-
   width: 100%;
   align-items: center;
   margin-left: 240px;
