@@ -49,10 +49,10 @@ const FX = () => {
   return (
     <>
       <Wrapper>
-        <h1>
+        <h2>
           {t("Exchange.1")}
           <FcCurrencyExchange style={{ height: 45, width: 45 }} />
-        </h1>
+        </h2>
         <div>
           {t("FromFX.1")}: {data["Meta Data"]["2. From Symbol"]}
         </div>
@@ -65,9 +65,10 @@ const FX = () => {
             {Object.entries(data["Time Series FX (1min)"])[0][1]["4. close"]}
           </strong>
         </div>
-        <h1>
-          Bitcoin <GrBitcoin />
-        </h1>
+        <br></br>
+        <h2>
+          {t("Bitcoin.1")} <GrBitcoin />
+        </h2>
         <div>BTC = $15,904.40 USD</div>
       </Wrapper>
     </>
@@ -86,8 +87,6 @@ const Wrapper = styled.div`
   padding: 15px;
   padding-top: 60px;
 
-  div {
-  }
   @media (max-width: 1200px) {
     /* ... */
   }

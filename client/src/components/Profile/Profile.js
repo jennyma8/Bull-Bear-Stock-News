@@ -95,7 +95,7 @@ const Profile = () => {
                   {t("Email.1")}: {appUser.email}
                 </div>
                 <div>Preferred Language: English</div>
-                <div>City: Montreal</div>
+                <div>Location: Montreal, Quebec</div>
                 <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
                 <WatchlistForm onSubmit={addStock} />
                 <Watchlist
@@ -123,7 +123,9 @@ const Wrapper = styled.div`
   margin-top: 200px;
   color: white;
   padding: 50px;
-  min-height: 500px;
+
+  min-height: 450px;
+
   background: linear-gradient(to bottom right, #3d5a80 0%, #ccffff 100%);
 `;
 

@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
 html {
   box-sizing: border-box;
 }
-html, body {
+html, body{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,6 +24,7 @@ html, body {
 	/* font-family: 'Lato',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
   vertical-align: baseline;
   font-family: 'Noto Serif', sans-serif;
+  
   ::-webkit-scrollbar {
         width: 20px;
       }

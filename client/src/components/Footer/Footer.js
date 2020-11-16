@@ -13,6 +13,7 @@ const Footer = () => {
 const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
+  background: #d8dee5;
 `;
 
 export default Footer;

@@ -32,6 +32,7 @@ const StockPage = () => {
 };
 
 const Wrapper = styled.div`
+  margin-bottom: 300px;
   @media (max-width: 1200px) {
     /* ... */
   }
@@ -45,6 +46,7 @@ const StockWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
   @media (max-width: 1200px) {
     /* ... */
   }
