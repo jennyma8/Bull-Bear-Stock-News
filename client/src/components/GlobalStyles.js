@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
 /* GOOGLE FONTS HERE */
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -21,7 +23,7 @@ html, body {
   font-size: 100%;
 	/* font-family: 'Lato',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
   vertical-align: baseline;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Serif', sans-serif;
   ::-webkit-scrollbar {
         width: 20px;
       }

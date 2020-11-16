@@ -4,6 +4,7 @@ import Spinner from "../assets/CircularSpinner";
 import FX from "../FX/FX";
 import { useTranslation } from "react-i18next";
 // import i18next from "i18next";
+import RBC from "../assets/RBC1.jpg";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -70,7 +71,15 @@ const Homepage = () => {
           })}
         </NewsWrapper>
       </Wrapper>{" "}
-      <Advertisement>{t("Advertisement.1")}</Advertisement>
+      <Advertisement>
+        <div>{t("Advertisement.1")}</div>
+
+        <div>
+          <a href="https://www.rbcroyalbank.com/services/mortgages/combo-home-buyers-s-or.html?codeid=12012015MSEM&utm_dc=ks_SEG_69734072_101146847171_419514270959_kwd-297933406781_c&gclid=Cj0KCQiAwMP9BRCzARIsAPWTJ_FuiXoRyG7ADyB0e-YS9N-LRFsaQ8cizmRfz_laYsxThku6jCvapG8aAtpUEALw_wcB">
+            <img src={RBC} style={{ width: 300, height: 200 }}></img>
+          </a>
+        </div>
+      </Advertisement>
     </>
   );
 };
@@ -78,6 +87,7 @@ const Homepage = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 `;
 
 const GlobalTitle = styled.h1`
@@ -137,5 +147,9 @@ const Advertisement = styled.div`
   border-radius: 15px;
 
   text-align: center;
+
+  div {
+    padding: 10px;
+  }
 `;
 export default Homepage;

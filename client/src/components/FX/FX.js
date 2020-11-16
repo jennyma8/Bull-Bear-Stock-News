@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FcCurrencyExchange } from "react-icons/fc";
 import Spinner from "../assets/CircularSpinner";
 import { useTranslation } from "react-i18next";
+import { GrBitcoin } from "react-icons/gr";
 // import i18next from "i18next";
 
 require("dotenv").config();
@@ -64,6 +65,10 @@ const FX = () => {
             {Object.entries(data["Time Series FX (1min)"])[0][1]["4. close"]}
           </strong>
         </div>
+        <h1>
+          Bitcoin <GrBitcoin />
+        </h1>
+        <div>BTC = $15,904.40 USD</div>
       </Wrapper>
     </>
   );
