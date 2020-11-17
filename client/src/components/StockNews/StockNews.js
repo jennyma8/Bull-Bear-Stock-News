@@ -5,6 +5,7 @@ import { AppContext } from "../AppContext/AppContext";
 // import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 // import i18next from "i18next";
+import { addHours, format, subHours } from "date-fns";
 
 require("dotenv").config();
 const apiKey = process.env.REACT_APP_NEWS_API;
@@ -14,6 +15,14 @@ const StockNews = () => {
 
   const [data, setdata] = React.useState();
   const { ticker } = useContext(AppContext);
+
+  const options = {
+    timeZone: "Canada/Central",
+    hour12: true,
+    hour: "numeric",
+    minute: "numeric",
+    seconds: "numeric",
+  };
 
   React.useEffect(() => {
     //ticker params
@@ -34,6 +43,7 @@ const StockNews = () => {
           response.json().then(function (data) {
             // console.log(data);
             setdata(data);
+            console.log(data.date);
           });
         })
         .catch(function (err) {
@@ -59,14 +69,15 @@ const StockNews = () => {
           return (
             <NewsContainer key={index}>
               <div>{news.date}</div>
+              <h1>{news.title}</h1>
               <img src={news.image_url} alt="news"></img>
 
               <div>
                 {t("Source.1")}: {news.source_name}
               </div>
-              <div>{news.title}</div>
+
               <div>
-                {t("Summary.1")}: {news.text}
+                <strong>{t("Summary.1")}</strong>: {news.text}
               </div>
               <a href={news.news_url}>{t("ReadMore.1")}...</a>
             </NewsContainer>

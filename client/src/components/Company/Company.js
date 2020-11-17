@@ -4,6 +4,7 @@ import { AppContext } from "../AppContext/AppContext";
 import { useTranslation } from "react-i18next";
 // import i18next from "i18next";
 import Spinner from "../assets/CircularSpinner";
+import { addHours, format, subHours } from "date-fns";
 
 require("dotenv").config();
 const apiKeyAlpha = process.env.REACT_APP_ALPHA_API;
@@ -98,7 +99,8 @@ const Company = () => {
           </h1>
           <div>
             {t("LastUpdate.1")}:{" "}
-            {Object.entries(quoteData["Time Series (1min)"])[0][0]}
+            {Object.entries(quoteData["Time Series (1min)"])[0][0]}{" "}
+            {quoteData["Meta Data"]["6. Time Zone"]}
           </div>
         </WrapperQuote>
         <WrapperCompany>

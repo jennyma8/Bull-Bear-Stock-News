@@ -126,6 +126,10 @@ const Display = styled.div`
   width: 400px;
 
   padding: 2px;
+  :hover {
+    background: grey;
+    cursor: pointer;
+  }
 `;
 
 export default WatchlistForm;
