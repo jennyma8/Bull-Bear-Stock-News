@@ -1,47 +1,37 @@
-# Firebase with Google Auth
+# Welcome to BULL & BEAR STOCK MARKET NEWS!
 
-## Setup
+This demo is meant to showcase my knowledge of
+React with Firebase auth, real-time database and internationalization with i18next
 
-### Installation
+---
 
-#### Backend
+## FEATURES
 
-```bash
-yarn install
-```
+- Users are able to quickly browse specific stock which are being fetched from the front-end using 2 different APIs (stock and news)
 
-#### Frontend
+- Each stock can be added in the Watchlist under Profile
 
-```bash
-cd client
-yarn install
-```
+- About Us page gives credit to the APIs supplier and a bio about myself
 
-### Start
+---
 
-This tutorial will require 2 terminals open. One to manage the FE (`/client`), and one for the BE.
+## Example
 
-#### Backend
+### Landing Page featuring global financial news
 
-```bash
-yarn dev
-```
+Also includes randomly featured products
 
-#### Frontend
+\
 
-```bash
-cd client
-yarn start
-```
+---
 
-## Exercise 1 - Set up a Firebase app
+### Quickly Add Items to Cart for Checkout
 
-Open this exercise file: [exercise-1.md](__exercises/exercise-1.md)
+\
 
-## Exercise 2 - Set up Google Sign in
+---
 
-Open this exercise file: [exercise-2.md](__exercises/exercise-2.md)
+### Filter Items by Category
 
-## Exercise 3 - Set up a Firebase Realtime Database
-
-Open this exercise file: [exercise-3.md](__exercises/exercise-3.md)
+\
+![Alt text](client/src/components/assets/Project.gif)

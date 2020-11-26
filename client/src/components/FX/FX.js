@@ -69,7 +69,7 @@ const FX = () => {
         <h2>
           {t("Bitcoin.1")} <GrBitcoin />
         </h2>
-        <div>BTC = $15,904.40 USD</div>
+        <div>BTC = $17,782.30 USD</div>
       </Wrapper>
     </>
   );

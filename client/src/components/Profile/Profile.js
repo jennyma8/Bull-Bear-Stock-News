@@ -91,9 +91,7 @@ const Profile = () => {
                 </div>
                 <h1>{t("Profile.1")}</h1>
                 <div>Name: Jenny Ma</div>
-                <div>
-                  {t("Email.1")}: {appUser.email}
-                </div>
+                <div>{/* {t("Email.1")}: {appUser.email} */}</div>
                 <div>Preferred Language: English</div>
                 <div>Location: Montreal, Quebec</div>
                 <h1 className="watchlist-component">{t("Watchlist.1")}: </h1>
