@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path"); //deploy
 const morgan = require("morgan");
 const { createUser } = require("./handlers");
 const { getUser } = require("./handlers");
 
 require("dotenv").config();
+// const routes = require(".routes");
+// const buildPath = path.join(__dirname, "..", "client/build");
 const PORT = process.env.PORT || 8000;
 
 express()
@@ -25,7 +28,11 @@ express()
   .use(bodyParser.json())
   .use(express.urlencoded({ extended: false }))
   .use("/", express.static(__dirname + "/"))
-
+  // .use("/api", routes)
+  // .use(express.static(buildPath))
+  // .get("*", function (req, res) {
+  //   res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  // })
   //login
   .get("/users", getUser)
   .post("/users", createUser)
